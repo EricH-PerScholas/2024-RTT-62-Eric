@@ -40,8 +40,8 @@ public class Homework303_2_1 {
         int v1 = 5;
         int v2 = 2;
 
-        double div = (double) v1 / (double) v2;
-        System.out.println(div);
+        double div = (double)v1 / (double)v2;
+        System.out.println("!!!!!!! " + v1 + " / " + v2 + " = " + div);
 
 
         Integer abc = null;

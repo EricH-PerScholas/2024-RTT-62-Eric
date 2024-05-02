@@ -47,6 +47,12 @@ public class FirstJavaClass {
         System.out.println(ch);
 
         long ms = System.currentTimeMillis();
+
+        // ---------------------
+
+        int zero = 4 % 2;
+        int one = 5 % 2;
+
     }
 
 }
