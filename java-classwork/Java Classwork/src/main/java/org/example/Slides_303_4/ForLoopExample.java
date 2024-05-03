@@ -41,12 +41,23 @@ public class ForLoopExample {
         // nice new for loop
         int count = 0;
         for (String element : stringList) {
-            if ( element.equals("Three")) {
+            if (element.equals("Three")) {
                 break;
             }
             System.out.println(element);
             count++;
         }
 
+
+        System.out.println("----------------------------------");
+        // essentially these 2 loops are the same
+        String someString = "This is a string";
+        for (int pos = 0; pos < someString.length(); pos++) {
+            System.out.println(someString.charAt(pos));
+        }
+
+        for (Character ch : someString.toCharArray()) {
+            System.out.println(ch);
+        }
     }
 }
