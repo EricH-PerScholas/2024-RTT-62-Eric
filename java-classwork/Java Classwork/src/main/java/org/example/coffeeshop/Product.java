@@ -5,18 +5,21 @@ public class Product {
     private double price;
     private String name;
     private boolean beverage;
+    private int quantityAvailable;
 
 
-
-
+    // constructor with no args - by default this is included with the java language
     public Product() {
-
+        System.out.println("No args constructor called");
     }
 
-    public Product(double price, String name, boolean beverage) {
+    // constructor with all args
+    // it is only if you want to have a custom constructor that you add it
+    public Product(double price, String name, boolean beverage, int quantityAvailable) {
         this.price = price;
         this.name = name;
         this.beverage = beverage;
+        this.quantityAvailable = quantityAvailable;
     }
 
 
