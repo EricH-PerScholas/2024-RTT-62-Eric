@@ -65,6 +65,14 @@ public class ArraysExample {
         Arrays.sort(desc);
         System.out.println(Arrays.toString(desc));
 
+
+        // creating an object array
+        Object[] objectArray = new Object[10];
+        objectArray[0] = "String 1";
+        objectArray[1] = 10;
+
+        System.out.println(objectArray[-1]);
+
     }
 
 }
