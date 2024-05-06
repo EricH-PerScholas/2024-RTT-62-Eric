@@ -1,6 +1,7 @@
 package org.example.Slides_303_6;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ArraysExample {
@@ -10,7 +11,7 @@ public class ArraysExample {
         // can create variable and new array in line too
         // primitive numbers initialize to 0
         double[] dArray = new double[10];
-        for ( int pos = 0 ; pos < dArray.length ; pos++ ) {
+        for (int pos = 0; pos < dArray.length; pos++) {
             System.out.println(pos + " -> " + dArray[pos]);
         }
 
@@ -18,7 +19,7 @@ public class ArraysExample {
         // these will initialize to null because it is an object array
         // all object arrays init to null
         String[] sArray = new String[10];
-        for ( int pos = 0 ; pos < sArray.length ; pos++ ) {
+        for (int pos = 0; pos < sArray.length; pos++) {
             System.out.println("-> " + sArray[pos]);
         }
 
@@ -31,7 +32,7 @@ public class ArraysExample {
         // the compiler will see this and create an array of strings with size of 3 and puts the 3 values in the array
         String[] constants = {"String1", "String2", "String3"};
         // new style for loop can be used with arrays
-        for ( String constant : constants ) {
+        for (String constant : constants) {
             System.out.println(constant);
         }
 
@@ -44,7 +45,7 @@ public class ArraysExample {
 
         // this also works for other data types
         int[] intConstants = {1, 2, 3, 4, 5};
-        for ( int pos = 0 ; pos < intConstants.length ; pos++ ) {
+        for (int pos = 0; pos < intConstants.length; pos++) {
             System.out.println(intConstants[pos]);
         }
 
@@ -58,6 +59,11 @@ public class ArraysExample {
         List<Double> dList = new ArrayList<>();
         dList.size();
 
+
+        // descending
+        int[] desc = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+        Arrays.sort(desc);
+        System.out.println(Arrays.toString(desc));
 
     }
 
