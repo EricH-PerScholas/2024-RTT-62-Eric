@@ -23,12 +23,12 @@ public class SBA1Practice {
          */
 
         // part 2
-        // Given the following Strings convert them to integer values   Integer.valueOf()
+        // Given the following Strings convert them to integer values   Integer.parseInt()
         String ten = "10";
         String hundred = "100";
 
         int ten1 = Integer.valueOf(ten);
-        int hun = Integer.valueOf(hundred);
+        int hun = Integer.parseInt(hundred);
 
         // part 3
         // given an integer array find the sum of all the integers in the array

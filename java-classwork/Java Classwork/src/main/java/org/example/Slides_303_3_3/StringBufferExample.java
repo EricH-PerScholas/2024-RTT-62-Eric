@@ -3,6 +3,11 @@ package org.example.Slides_303_3_3;
 public class StringBufferExample {
 
     public static void main(String[] args) {
+
+        // NOTE : the 2nd argument is not inclusive of the position
+        // NOTE : run this in the debugger to see what each statement is doing
+        // NOTE : for the KBA use a piece of blank scratch paper to write the string down after each operation
+
         // 012345678901
         // filename.txt
         StringBuffer sb = new StringBuffer("filename.txt");
