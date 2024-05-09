@@ -16,7 +16,7 @@ public class Main {
 
         shapes.add(c);
 
-        Rectangle r = new Rectangle("name");
+        Rectangle r = new Rectangle("rectangle");
         r.setLength(10);
         r.setWidth(5);
 
@@ -40,9 +40,10 @@ public class Main {
                 Circle c1 = (Circle)shape;
                 c1.setDiameter(134);
             }
-            
+
             //95% of the time you dont care what kind of shape it is you are just acting on all shapes
-            System.out.println("The area of " + shape.getName() + " equals " + shape.calculateArea());
+            System.out.print("The area of " + shape.getName() + " equals " + shape.calculateArea());
+            System.out.println(" and the perimeter is " + shape.calculatePerimeter());
         }
 
     }

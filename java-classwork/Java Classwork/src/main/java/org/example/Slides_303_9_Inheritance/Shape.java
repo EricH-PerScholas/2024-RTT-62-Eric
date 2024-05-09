@@ -1,6 +1,6 @@
 package org.example.Slides_303_9_Inheritance;
 
-public abstract class Shape {
+public abstract class Shape implements PerimeterInterface {
 
     public static double area;
 
@@ -14,7 +14,8 @@ public abstract class Shape {
 
 
 
-    
+
+
 
 
 

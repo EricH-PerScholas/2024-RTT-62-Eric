@@ -11,7 +11,9 @@ public class Circle extends Shape {
         return Math.PI * (diameter / 2) * (diameter / 2);
     }
 
-
+    public double calculatePerimeter() {
+        return (2*Math.PI) * (diameter/2);
+    }
 
 
 
@@ -47,5 +49,7 @@ public class Circle extends Shape {
     public void setDiameter(double diameter) {
         this.diameter = diameter;
     }
+
+
 }
 
