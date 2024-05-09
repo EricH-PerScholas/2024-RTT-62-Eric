@@ -6,6 +6,16 @@ public abstract class Shape {
 
     private String name;
 
+    // this is the definition for a method that all child classes
+    // must implement.  There is no implementation here
+    public abstract double calculateArea();
+
+
+
+
+
+
+
     public Shape() {
 
     }
@@ -18,7 +28,6 @@ public abstract class Shape {
         System.out.println("The name of the shape is " + name);
     }
 
-    public abstract double calculateArea();
 
 
     public String getName() {
