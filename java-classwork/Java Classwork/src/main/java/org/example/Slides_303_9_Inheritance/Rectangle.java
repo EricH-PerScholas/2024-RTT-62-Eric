@@ -16,6 +16,16 @@ public class Rectangle extends Shape {
         return (2*length) + (2*width);
     }
 
+    @Override
+    public void officialNameOfShape() {
+        System.out.println("Rectangle");
+    }
+
+    @Override
+    public int bedtime() {
+        return 12;
+    }
+
 
 
 

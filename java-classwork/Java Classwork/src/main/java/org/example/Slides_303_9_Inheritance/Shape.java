@@ -11,6 +11,14 @@ public abstract class Shape implements PerimeterInterface {
     public abstract double calculateArea();
 
 
+    public void officialNameOfShape() {
+        System.out.println("Shape");
+    }
+
+
+    public int bedtime() {
+        return 10;
+    }
 
 
 

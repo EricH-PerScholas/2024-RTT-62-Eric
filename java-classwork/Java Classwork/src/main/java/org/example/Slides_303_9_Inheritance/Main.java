@@ -1,6 +1,8 @@
 package org.example.Slides_303_9_Inheritance;
 
+import java.lang.reflect.Parameter;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
@@ -8,7 +10,7 @@ public class Main {
     public static double PI = 3.14159;
 
     public static void main(String[] args ) {
-        List<Shape> shapes = new ArrayList<>();
+        List<Shape> shapes = new LinkedList<>();
 
         Circle c = new Circle();
         c.setName("Circle");
@@ -44,8 +46,11 @@ public class Main {
             //95% of the time you dont care what kind of shape it is you are just acting on all shapes
             System.out.print("The area of " + shape.getName() + " equals " + shape.calculateArea());
             System.out.println(" and the perimeter is " + shape.calculatePerimeter());
+
+            shape.officialNameOfShape();
         }
 
+        List<Object> olist = new ArrayList<>();
     }
 
 }

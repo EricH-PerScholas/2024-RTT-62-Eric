@@ -4,4 +4,6 @@ public interface PerimeterInterface {
 
     public double calculatePerimeter();
 
+    public int bedtime();
+
 }
