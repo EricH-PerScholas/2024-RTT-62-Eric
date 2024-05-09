@@ -25,7 +25,7 @@ public class Main {
         // this is giving an error because Shape has an unimplemented method calculateArea
         // thats why we cant make a new one.
         /* Shape s = new Shape(); */
-        
+
         // the compiler can automatically go from a child to a parent without typecasting
         // its only when you want to go from a parent to child that you need to typecast it
         Shape s1 = new Rectangle();
@@ -40,7 +40,7 @@ public class Main {
                 Circle c1 = (Circle)shape;
                 c1.setDiameter(134);
             }
-
+            
             //95% of the time you dont care what kind of shape it is you are just acting on all shapes
             System.out.println("The area of " + shape.getName() + " equals " + shape.calculateArea());
         }

@@ -9,6 +9,36 @@ public class Square extends Shape{
         return width * width;
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public int getWidth() {
         return width;
     }
