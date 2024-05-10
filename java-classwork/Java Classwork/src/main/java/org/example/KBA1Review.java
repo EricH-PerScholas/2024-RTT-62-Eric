@@ -50,6 +50,22 @@ public class KBA1Review {
         // these 2 functions are not the same
         printOutput(a + b + c);
         printOutput(a,b,c);
+
+        // know how to create a new object
+        Object o = new Object();
+        String s = new String();
+
+        // the fields/variable in an interface must be static and final - meaning they can not be changed.  They
+        // are simply read only constants
+
+        // public static void main(String[] args) - be able to pick something wrong
+
+        // when defining a boolean the true and false are keywords and must be lowercase
+        boolean bt = true;
+        boolean bf = false;
+
+        // java does not support multiple inheritance
+        // you can not craete a new instance an interface.
     }
 
 
