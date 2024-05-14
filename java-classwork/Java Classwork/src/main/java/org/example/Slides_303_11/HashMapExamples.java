@@ -32,6 +32,9 @@ public class HashMapExamples {
         // in this case the key is an integer and the value is a string
         Map<Integer, String> intMap = new HashMap<>();
         intMap.put(10,"ten");
+        //intMap.put(20, 10);
+        String ten = (String) intMap.get(10);
+        //Integer twenty = (Integer)intMap.get(20);
 
         // this happens sometimes, but usually there are other ways of solving problems
         // this would be a work around or a hack for allowing duplicate values for key
@@ -43,10 +46,7 @@ public class HashMapExamples {
 
         listMap.put("avenues", new ArrayList<String>());
 
-        // this happens when working with ad hoc queries
-        // this is going happen far mroe often than the map of list
-        // when it comes back from the database this way we just treat it as a read only object
-        List<Map<String,Object>> queryResult;
+
     }
 
 }
