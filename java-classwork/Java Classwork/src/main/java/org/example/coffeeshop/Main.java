@@ -11,7 +11,7 @@ public class Main {
 
 
     public int printMenu() {
-        System.out.println("0) Exit");
+        System.out.println("\n\n0) Exit");
         System.out.println("1) Print the list of products");
         System.out.println("2) Order a product");
         System.out.println("3) Checkout");

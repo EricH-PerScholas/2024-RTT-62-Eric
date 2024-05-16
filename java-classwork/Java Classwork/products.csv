@@ -1,0 +1,6 @@
+Product Name,Price,Quantity Available,Is it a beverage
+Chai Latte,2.99,10,true
+Bottle of Water,9.99,100,true
+Americano,4.99,50,true
+Espresso,5.99,25,true
+Bag of Chips,3.99,30,false

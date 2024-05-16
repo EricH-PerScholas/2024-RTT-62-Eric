@@ -56,7 +56,6 @@ public class Product {
         this.quantityAvailable = quantityAvailable;
     }
 
-
     @Override
     public String toString() {
         return "Product{" +

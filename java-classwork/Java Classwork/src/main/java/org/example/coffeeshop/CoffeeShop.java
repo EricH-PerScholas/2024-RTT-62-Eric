@@ -9,6 +9,10 @@ public class CoffeeShop {
 
     // building the menu of products for sale at the coffee shop
     public void initProducts() {
+        ProductReader pr = new ProductReader();
+        List<Product> productsFromFile = pr.readProducts();
+        products.addAll(productsFromFile);
+
         Product p1 = new Product();
         p1.setPrice(5.46);
         p1.setName("Small Coffee");
@@ -29,6 +33,8 @@ public class CoffeeShop {
 
         Product eggSandwich = new Product(7.89, "Egg Sandwich", false, 50);
         products.add(eggSandwich);
+
+
     }
 
     // print the list of products available for sale

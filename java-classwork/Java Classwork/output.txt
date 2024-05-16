@@ -1,0 +1,4 @@
+Line (0) This is my first sentence writing to a file.
+Line (1) This is my first sentence writing to a file.
+Line (2) This is my first sentence writing to a file.
+Line (3) This is my first sentence writing to a file.
