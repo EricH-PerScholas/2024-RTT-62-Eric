@@ -39,7 +39,7 @@ public class ExceptionsExamples {
             }
             System.out.println("The user entered bad data");
         } catch ( ArrayIndexOutOfBoundsException aiobe ) {
-            System.out.println("The user entered an invalid array position");
+            System.out.println("The user entered an invalid array position " + aiobe.getMessage());
         } catch (Exception e) {
             System.out.println("Caught the exception e with message : " + e.getMessage());
             e.printStackTrace();
