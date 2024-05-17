@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc3a1b0a-2b02-4c3c-8be5-3a9879ebdece" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/products.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Slides_303_13/FileExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Slides_303_13/FileReaderExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Slides_303_13/FileWriterExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/coffeeshop/ProductReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Slides_303_14/ForEachExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Slides_303_14/Human.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Slides_303_14/MainFunctionalKBA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Slides_303_14/MyFunctionalInterfaceKBA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Slides_303_14/MyRunner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Slides_303_14/NormalClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Slides_303_9_Inheritance/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Slides_303_9_Inheritance/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/coffeeshop/CoffeeShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/coffeeshop/CoffeeShop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/coffeeshop/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/coffeeshop/Product.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +24,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -46,8 +49,11 @@
     "Application.FileExample.executor": "Run",
     "Application.FileReaderExample.executor": "Debug",
     "Application.FileWriterExample.executor": "Run",
+    "Application.ForEachExample.executor": "Run",
     "Application.HashMapExamples.executor": "Run",
     "Application.Main.executor": "Run",
+    "Application.MainFunctionalKBA.executor": "Run",
+    "Application.MyRunner.executor": "Run",
     "Application.ProductReader.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -61,39 +67,13 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="FileExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Slides_303_13.FileExample" />
+  <component name="RunManager" selected="Application.ForEachExample">
+    <configuration name="ForEachExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Slides_303_14.ForEachExample" />
       <module name="Java-Classwork" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.Slides_303_13.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FileReaderExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Slides_303_13.FileReaderExample" />
-      <module name="Java-Classwork" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.Slides_303_13.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FileWriterExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Slides_303_13.FileWriterExample" />
-      <module name="Java-Classwork" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.Slides_303_13.*" />
+          <option name="PATTERN" value="org.example.Slides_303_14.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -107,6 +87,32 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.example.coffeeshop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainFunctionalKBA" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Slides_303_14.MainFunctionalKBA" />
+      <module name="Java-Classwork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.Slides_303_14.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Slides_303_14.MyRunner" />
+      <module name="Java-Classwork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.Slides_303_14.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -129,11 +135,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ForEachExample" />
+        <item itemvalue="Application.MainFunctionalKBA" />
+        <item itemvalue="Application.MyRunner" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.ProductReader" />
-        <item itemvalue="Application.FileReaderExample" />
-        <item itemvalue="Application.FileWriterExample" />
-        <item itemvalue="Application.FileExample" />
       </list>
     </recent_temporary>
   </component>
@@ -155,7 +161,7 @@
       <updated>1715349052961</updated>
       <workItem from="1715349054718" duration="10587000" />
       <workItem from="1715799284249" duration="92000" />
-      <workItem from="1715866609293" duration="15862000" />
+      <workItem from="1715866609293" duration="27651000" />
     </task>
     <servers />
   </component>
@@ -177,7 +183,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/coffeeshop/CoffeeShop.java</url>
-          <line>30</line>
+          <line>34</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
