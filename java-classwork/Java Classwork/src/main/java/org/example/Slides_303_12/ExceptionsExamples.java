@@ -15,7 +15,7 @@ public class ExceptionsExamples {
     }
 
 
-    public void run() {
+    public void run() throws Exception {
         int[] array = new int[10];
 
 
@@ -31,14 +31,13 @@ public class ExceptionsExamples {
 
             throw new Exception("This message should describe what went wrong");
         } catch (InputMismatchException ime) {
-            try {
-                // do some other code
-            } catch (Exception ex1) {
-
-            }
+            // this is an unchecked exception
             System.out.println("The user entered bad data");
+            ime.printStackTrace();
         } catch (ArrayIndexOutOfBoundsException aiobe) {
+            // this is also an uncheckeced excption
             System.out.println("The user entered an invalid array position " + aiobe.getMessage());
+            aiobe.printStackTrace();
         } catch (Exception e) {
             System.out.println("Caught the exception e with message : " + e.getMessage());
             e.printStackTrace();
@@ -49,7 +48,7 @@ public class ExceptionsExamples {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         ExceptionsExamples ee = new ExceptionsExamples();
         ee.run();
     }

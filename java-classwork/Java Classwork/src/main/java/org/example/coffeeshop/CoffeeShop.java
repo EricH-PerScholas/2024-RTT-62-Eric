@@ -35,7 +35,6 @@ public class CoffeeShop {
         Product eggSandwich = new Product(7.89, "Egg Sandwich", false, 50);
         products.add(eggSandwich);
 
-
     }
 
     public void printCheapProducts() {
@@ -55,6 +54,7 @@ public class CoffeeShop {
     // print the list of products available for sale
     public void printProducts() {
         for ( int pos = 0 ; pos < products.size() ; pos++ ) {
+            // getting the product from the array list by its position ... note that it is not using [] like an array
             Product product = products.get(pos);
             System.out.println((pos+1) + ") " + product.getName() + "\t" + product.getPrice() );
         }
