@@ -2,7 +2,73 @@ select * from employees where firstname = 'Diane';
 
 select * from employees where job_title = 'Sales Rep' order by firstname desc;
 
+select * from offices order by city asc, country desc;
+
+select * from employees order by firstname asc, lastname desc;
+
+select * from customers;
+
+select distinct country from customers order by country asc;
+select country, count(*) from customers group by country order by country asc;
+
+-- these 2 statemenst are the same
+select * from customers where country IN ( 'USA', 'Australia', 'France' );
+select * from customers where country = 'USA' or country = 'Austrailia' or country = 'France';
+
+-- null does not work with =
+select * from customers where address_line2 = null;
+select * from customers where address_line2 is not null;
+
+select country, count(*) as country_cnt, max(credit_limit) as max_credit_limit, min(credit_limit) as min_credit_limit, avg(credit_limit) as avg_credit_limit 
+from customers 
+group by country
+having max(credit_limit) > 50000
+order by max_credit_limit desc
+limit 5;
+
+select lower(customer_name), upper(customer_name) from customers;
+
+select current_date();
+select month(current_date());
+select year(current_date()) = 2024;
+
+				-- 'YYYY-MM-DD'	
+SELECT DATE_FORMAT('2014-02-01', '%Y-%m-%e');
+
+SELECT IF(200<200, 'yes', 'no') as ifstatement;
+
+
+
+
+select *, (select max(credit_limit) from customers where country = 'USA' ) as max_usa
+from customers
+where phone like '%21%';
+
+select * from customers
+where credit_limit between 50000 and 60000;
+where crecit_limit >= 50000 and credit_limit <= 600000;
+
+
+
+
+
+
+
+
+
+
+
+
+
+select contact_firstname, count(*) from customers group by contact_firstname order by 2 desc, 1 asc;
+select * from customers where contact_firstname = 'First Name';
+
 select * from offices where country = 'USA';
+
+select * from customers where id = 145;
+
+SELECT UUID() AS UUID_Value;
+
 
 select distinct country from offices;
 select distinct firstname from employees order by firstname;
