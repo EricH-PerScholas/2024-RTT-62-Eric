@@ -30,7 +30,7 @@ select * from
 	( select * from products p where p.product_name like '19%' ) a
 where a.productline_id = 2;
 
--- 
+-- SBA Review
 -- for this we can use the format function 
 select p.product_name, format(max(quantity_ordered),2) as "max_offer", format(min(quantity_ordered),2) as min_buy_price, 
 format(round(avg(quantity_ordered),2),2) as avg_buy_price, count(*) as product_count
