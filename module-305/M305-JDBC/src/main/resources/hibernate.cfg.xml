@@ -27,5 +27,6 @@
         <!-- this tells hibernate which entities you have in your project -->
         <!-- each entity needs to have a line here in the config file -->
         <mapping class="org.example.database.entity.Employee"/>
+        <mapping class="org.example.database.entity.Product"/>
     </session-factory>
 </hibernate-configuration>
