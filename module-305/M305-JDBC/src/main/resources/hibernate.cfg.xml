@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- these 2 lines tell hibernate that we are using MySQL database -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+        <!-- this is the database connection information -->
+        <property name="connection.url">jdbc:mysql://192.168.2.100:3306/classic_models</property>
+        <property name="connection.username">dev</property>
+        <property name="connection.password">ultra30dev</property>
+
+        <!-- connection pool reduces the load on the server -->
+        <property name="connection.pool_size">3</property>
+
+        <!-- these next 2 are nice to show what query hibernate is running you can turn them on and off -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <!-- this is the validation for hibernate  -->
+        <property name="hbm2ddl.auto">validate</property>
+
+        <!-- this tells hibernate which entities you have in your project -->
+        <!-- each entity needs to have a line here in the config file -->
+        <mapping class="org.example.database.entity.Employee"/>
+    </session-factory>
+</hibernate-configuration>

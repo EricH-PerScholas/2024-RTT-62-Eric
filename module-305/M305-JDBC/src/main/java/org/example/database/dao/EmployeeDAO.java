@@ -1,15 +1,39 @@
 package org.example.database.dao;
 
+import jakarta.persistence.TypedQuery;
 import org.example.database.entity.Employee;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 import java.util.List;
 
 public class EmployeeDAO {
 
     public List<Employee> findByFirstName(String firstName) {
-        // this where the code goes to execute the query
+        // these 2 lines of code prepare the hibernate session for use
+        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        Session session = factory.openSession();
 
-        return null;
+        // JPA Query - the syntax is slightly different than regular SQL
+        // SQL - "select * from employees e where e.firstname = ?"
+        String hql = "SELECT e FROM Employee e where e.firstname = :firstname";
+
+        // this typed query is how hibernate knows what kind of object of fill up with the query results
+        TypedQuery<Employee> query = session.createQuery(hql,Employee.class);
+
+        // this is similar to the prepared statement, we are going to set the value in the query :firstname
+        // to the value passed into the function
+        query.setParameter("firstname", firstName);
+
+        // when we know we are getting 0 or more records we use getResultList
+        List<Employee> result = query.getResultList();
+
+        // finally we close the hibernate session so it can release the resources its holding
+        // specifically the connection pool and close the transaction
+        session.close();
+
+        return result;
     }
 
     public List<Employee> findByLastName(String lastName) {
