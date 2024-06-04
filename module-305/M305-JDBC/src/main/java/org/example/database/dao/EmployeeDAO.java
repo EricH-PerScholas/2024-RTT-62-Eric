@@ -10,6 +10,25 @@ import java.util.List;
 
 public class EmployeeDAO {
 
+
+    public void insert(Employee employee) {
+        // these 2 lines of code prepare the hibernate session for use
+        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        Session session = factory.openSession();
+
+        // begin the transaction
+        session.getTransaction().begin();
+
+        // insert the employee to the database
+        session.save(employee);
+
+        /// commit our transaction
+        session.getTransaction().commit();
+
+        // cleanup the session
+        session.close();
+    }
+
     public List<Employee> findByFirstName(String firstName) {
         // these 2 lines of code prepare the hibernate session for use
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
