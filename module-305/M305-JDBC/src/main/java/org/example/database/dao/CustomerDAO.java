@@ -30,7 +30,7 @@ public class CustomerDAO {
     }
     //--------------------Method fidByContactFirstName-----------------------
 
-    public List<Customer> fidByContactFirstName(String contactName) {
+    public List<Customer> findByContactFirstName(String contactName) {
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
         String hqlCustomer = "SELECT c FROM Customer c WHERE c.contactFirstname = :whatever";
