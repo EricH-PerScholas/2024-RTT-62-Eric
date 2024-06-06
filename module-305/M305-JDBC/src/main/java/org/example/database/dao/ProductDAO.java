@@ -84,4 +84,16 @@ public class ProductDAO {
         return products;
     }
 
+    public void update(Product product) {
+        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        Session session = factory.openSession();
+        session.getTransaction().begin();
+
+        // this is the only line that changed
+        session.merge(product);
+
+        session.getTransaction().commit();
+        session.close();
+    }
+
 }
