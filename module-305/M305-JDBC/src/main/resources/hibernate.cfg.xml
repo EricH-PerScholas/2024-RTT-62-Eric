@@ -28,5 +28,6 @@
         <!-- each entity needs to have a line here in the config file -->
         <mapping class="org.example.database.entity.Employee"/>
         <mapping class="org.example.database.entity.Product"/>
+        <mapping class="org.example.database.entity.Customer"/>
     </session-factory>
 </hibernate-configuration>
