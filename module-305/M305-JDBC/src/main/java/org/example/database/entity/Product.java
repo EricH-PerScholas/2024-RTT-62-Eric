@@ -2,6 +2,10 @@ package org.example.database.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.query.Page;
+
+import java.util.List;
+import java.util.Set;
 
 
 @Setter
@@ -17,6 +21,10 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<OrderDetail> orderDetails;
 
     @Column(name = "product_code")
     private String productCode;

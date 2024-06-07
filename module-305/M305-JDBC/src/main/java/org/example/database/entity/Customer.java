@@ -5,6 +5,8 @@ import lombok.*;
 
 import java.awt.print.Book;
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -56,6 +58,10 @@ public class Customer {
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "sales_rep_employee_id", nullable = true)
     private Employee employee;
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Order> orders;
 
     // you can only use a primitive type if the column is not nullable
     // if the column is nullable then you have to use the Integer wrapper class because a primitive
