@@ -18,6 +18,14 @@ public class AddProductToOrderMain {
     // 3) Create a new OrderDetail object and add the order and the product
     // 4) Save the OrderDetail object to the database
 
+    // if the product is already part of the order then increment the quantity ordered
+    // 1) In your orderdetail dao .. create a findByProductIdAndOrderId method, also create insert and update methods
+    // 2) instead of just createing a new order detail run your new query
+    // 3) check if the order detail returned is null and if so create a new order detail
+    // 4) check if the quantity orderd == null if so set to 1 otherwise increment by 1
+    // 5) when saving ... check if the orderdetail.getid == null .. if so then it is an insert otherwise it is an update
+
+
     private OrderDAO orderDAO = new OrderDAO();
     private ProductDAO productDAO = new ProductDAO();
     private OrderDetailDAO orderDetailDAO = new OrderDetailDAO();
