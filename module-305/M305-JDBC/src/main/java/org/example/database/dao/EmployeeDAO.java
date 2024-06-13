@@ -53,6 +53,11 @@ public class EmployeeDAO {
         session.close();
     }
 
+    public void deleteById(Integer id) {
+        // write a delete query
+        // delete from employee e where e.id = ?
+    }
+
 
     public Employee findById(Integer id) {
         // these 2 lines of code prepare the hibernate session for use

@@ -28,6 +28,7 @@ public class JDBCDemo {
             stmt.setString(1, input);
             stmt.setString(2, lastnameInput);
 
+            int x = stmt.executeUpdate();
 
             ResultSet result = stmt.executeQuery();
             while (result.next()) {
