@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Forms Example</h1>
+
+    <form>
+        <!-- regular text input fields -->
+        <div>
+            First Name
+            <input name="firstname" type="text" value="default value"/>
+        </div>
+        <div style="padding-top:15px; padding-left: 15px;">
+            Email
+            <input type="text" placeholder="placeholder text"/>
+        </div>
+
+        <!-- radio button input type -->
+        <div style="padding-top:15px;">
+            <input type="radio" id="html" name="fav_language" value="HTML">
+            <label for="html">What shows up in the page</label><br>
+
+            <input type="radio" id="css" name="fav_language" value="CSS">
+            <label for="css">CSS</label><br>
+
+            <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+            <label for="javascript">JavaScript</label>
+        </div>
+
+        <!-- checkbox input type -->
+        <div style="padding-top:15px;">
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+            <label for="vehicle1"> This is what is displayed</label><br>
+
+            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+            <label for="vehicle2"> I have a car</label><br>
+
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+            <label for="vehicle3"> I have a boat</label><br>
+        </div>
+
+        <!-- this is a select box or considered a dropdown -->
+        <div style="padding-top:15px;">
+            <select>
+                <option>Dropdown 1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>Colorado</option>
+                <option>Hawaii</option>
+            </select>
+        </div>
+
+        <!-- this input field only allows numbers to be entered -->
+        <div style="padding-top:15px;">
+            <label for="quantity">Quantity (between 1 and 5):</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="5">
+        </div>
+
+        <!-- text area is a large input box -->
+        <div style="padding-top:15px;">
+            <textarea rows="10" cols="50">This is the text that will show up in the text area when the page is rendered.
+            </textarea>
+        </div>
+
+        <!-- a password input type is the same as a text input type -->
+        <!-- the browser displays dots instead of the actual characters -->
+        <div style="padding-top:15px;">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+        </div>
+
+        <!-- file upload -->
+        <div style="padding-top:15px;">
+            <input type="file" id="myfile" name="myfile">
+        </div>
+
+        <!-- date picker without a javascript library -->
+        <div style="padding-top:15px;">
+            <label for="start">Start date:</label>
+            <input type="date" id="start" name="trip-start" value="2018-07-22" />
+        </div>
+
+      </form>
+
+        <div style="padding-top:15px;">
+            <!-- this is a regular button-->
+            <button>The text on the button</button>
+
+             <!-- this is a submit button-->
+             <button type="submit">Submit</button>
+        </div>
+    </form>
+
+</body>
+</html>
