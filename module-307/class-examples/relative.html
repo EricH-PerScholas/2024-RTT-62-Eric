@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Position Relative</title>
+    <style>
+        div {
+            width: 150px;
+            height: 150px;
+            border: 1px solid;
+        }
+
+        .exampleBox {
+            background-color: lightcoral;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            
+            top:10px;
+            left:50px;
+            z-index:1;
+        }
+    </style>
+</head>
+<body>
+<h1>Position Relative</h1>
+
+<p>You guys can experiment with changing the position to relative or absolute
+    to see how you can position the box.   The css properties to move the box are 
+    left, right, top, and bottom.   I think about it as moving the box from the 
+    top or from the left.
+</p>
+
+<p>The <strong>element</strong> is positioned according to the normal flow of the document, and then offset relative to itself based on
+    the values of top, right, bottom, and left.
+    <strong>The offset does not affect the position of any other elements;</strong> thus, the
+    space given for the element in the page layout is the same as if position were static.</p>
+
+<div> Div 1</div>
+<div class="exampleBox"> Div 2</div>
+<div> Div 3</div>
+
+</body>
+</html>
