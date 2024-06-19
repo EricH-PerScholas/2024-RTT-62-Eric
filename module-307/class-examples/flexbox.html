@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flex Box</title>
+
+
+    <style>
+        .container{
+            display: flex;
+            justify-content: end;
+            align-items: flex-end;
+            align-content: start;
+            flex-wrap: wrap;
+            flex-direction: row;
+            height: 500px;
+            border: 1px solid black;
+        }
+        .boxes{
+            border: .1px solid;
+            width: 99px;
+            height: 99px;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        #box1{
+            background-color: green;
+        }
+        #box2{
+            background-color: yellow;
+        }
+        #box3{
+            background-color: pink;
+        }
+        #box4{
+            background-color: blue;
+        }
+        #box5{
+            background-color: red;
+        }
+        #box6{
+            background-color: orange;
+        }
+        #box7{
+            background-color:beige;
+        }
+        #box8{
+            background-color: lightgrey;
+        }
+    </style>
+</head>
+<body>
+
+<h1>The Flex model </h1>
+
+<div class="container">
+    <!--     flex items-->
+    <div class="boxes" id="box1">1</div>
+    <div class="boxes" id="box2">2</div>
+    <div class="boxes" id="box3">3</div>
+    <div class="boxes" id="box4">4</div>
+    <div class="boxes" id="box5" style="flex-grow:1">5</div>
+    <div class="boxes" id="box6">6</div>
+    <div class="boxes" id="box7" style="flex-grow:1">7</div>
+    <div class="boxes" id="box8">8</div>
+</div>
+
+</body>
+</html>
