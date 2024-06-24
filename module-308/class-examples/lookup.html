@@ -22,6 +22,7 @@
     <h1 name="inputText" class="class1">This is a header tag 3</h1>
 
     <input type="text" name="inputText"/>
+    <img class="class1" src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_2x_r5.png">
 
     <script>
         // find element by id and because id is unique 
@@ -40,7 +41,7 @@
         // find elements with the HTML tag and will return 
         // a list of elements
         console.log("================= getElementsByTagName =================");
-        let h1Elements = document.getElementsByTagName('h1');
+        let h1Elements = document.getElementsByTagName('img');
         for (let tag of h1Elements) {
             console.log(tag);
         }
@@ -53,6 +54,7 @@
         for (let classItem of classItems) {
             console.log(classItem);
             classItem.classList.add("class-name");
+            classItem.innerHTML = "New Text In the H1 Tag"
             //classItem.style.color = "RED";
         }
 
