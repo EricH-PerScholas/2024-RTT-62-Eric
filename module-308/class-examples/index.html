@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- want to load any CSS external scripts here -->
 </head>
 <body>
     <h1 id="titleTag">Javascript examples</h1>
@@ -16,6 +18,51 @@
         //element.style.display = "none";
 
         console.log("hello world");
+
+        const variable = "ABC123";
+
+        name("p1", "p2");
+
+        let x = name("parameter", "p2");
+        console.log(x);
+    
+        // most of the time we will just see the first example here
+        // but it is possible to create a new object in JS
+        let b = true;
+        let B = new Boolean(true); // this just doesnt get done very often in practice
+        
+        function name(param, param2) {
+            console.log("In function " + param + " " + param2 + " " + variable)
+            return "ABC";
+        }
+
+        const person = {
+            firstName: "John", 
+            lastName: "Doe", 
+            age: 50, 
+            eyeColor: "blue"
+        };
+
+        console.log(person.firstName + " is " + person["age"] + " years old.");
+
+        // we can update variables in the person object
+        person.firstName = "ABC";
+        person["age"] = 24;
+
+        // we can add variables to the person object like this
+        person.newVariable = "123";
+        person["anotherVariable"] = "XYZ";
+
+        // lets remove the age property
+        delete person.age;
+
+        console.log(person);
+        
+        // arrays
+        let array = [ 1 , 2 ,3 ,4, 5];
+        console.log("Array length = " + array.length)
     </script>
+
+    <!-- import less important javascript files here -->
 </body>
 </html>

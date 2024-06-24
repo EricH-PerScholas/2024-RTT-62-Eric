@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        .class1 {
+            color: blue;
+        }
+
+        .class-name {
+            color: red;
+        }
+    </style>
+
+    <h1 id="h1Tag" class="class1 class2">This is a header tag 1</h1>
+    <h1 name="inputText" class="class2">This is a header tag 2</h1>
+    <h1 name="inputText" class="class1">This is a header tag 3</h1>
+
+    <input type="text" name="inputText"/>
+
+    <script>
+        // find element by id and because id is unique 
+        // this will only return 1 element
+        let element = document.getElementById("h1Tag");
+        console.log(element);
+
+        // find elements by name returns a list of all elements 
+        // where name ="inputText"
+        console.log("================= getElementsByName =================");
+        let nameItems = document.getElementsByName("inputText");
+        for (let nameElement of nameItems) {
+            console.log(nameElement);
+        }
+
+        // find elements with the HTML tag and will return 
+        // a list of elements
+        console.log("================= getElementsByTagName =================");
+        let h1Elements = document.getElementsByTagName('h1');
+        for (let tag of h1Elements) {
+            console.log(tag);
+        }
+
+        // find all elements with a CSS Class on them
+        // this is the most common way of looking for elements in the DOM tree
+        console.log("================= getElementsByClassName =================");
+        let classItems = document.getElementsByClassName("class1");
+
+        for (let classItem of classItems) {
+            console.log(classItem);
+            classItem.classList.add("class-name");
+            //classItem.style.color = "RED";
+        }
+
+    </script>
+
+</body>
+</html>
