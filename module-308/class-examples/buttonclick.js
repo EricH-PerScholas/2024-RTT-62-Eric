@@ -6,3 +6,7 @@ function changeText() {
     const button = document.querySelector('button');
     button.textContent = "I was clicked";
 }
+
+function gotoLookup() {
+    window.location.href = '/lookup.html';
+}
