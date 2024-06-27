@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function onSubmit() {
+            let firstName = document.getElementById("firstName").value;
+            console.log(firstName);
+
+            // all lowercase letters
+            // this is how you can use a regex in javascript
+            const re = new RegExp("[a-z]+");
+
+            console.log(re.test(firstName));
+            if (re.test(firstName)) {
+                console.log("The regex matches");
+            } else {
+                console.log("The regex does not match");
+            }
+            
+            // this will prevent the form form submitting
+            //return false;
+            return true;
+        }
+    </script>
+
+    <form action="/test" onsubmit="return onSubmit();">
+        <!-- the pattern attribute is going to apply a regex in the browser when
+          the user clicks the submit button and it will do it before the onsubmit 
+          function is called and simply wont let the form submit -->
+        <input type="text" id="firstName" pattern="[a-zA-Z]+"/>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
