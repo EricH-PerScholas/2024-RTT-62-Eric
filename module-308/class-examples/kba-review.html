@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // this is a comment in Javascript
+        // the substring function works the same way as Java does
+        // remember that the first position is 0
+            //   01234567890
+        let a = "Hello world";
+        console.log(a.substring(4,7));
+        console.log("Lastindex = " + a.lastIndexOf("l"));
+
+        // what is z going to print?
+        // watch for the "" becuase that is a string and will not evaluate the math
+        let x = 5;
+        let y = 6;
+        let z = ("x*y");
+        let b = x * y;
+
+        console.log(z);
+
+        // the difference between == and ===
+        // not only is it a KBA question but it is important to know also
+        // === compares not only the value but the data type as well.
+        console.log( "1" == 1 ); // true
+        console.log( "1" == "1"); // true
+        console.log( 1 == 1 ) // true
+        console.log( "1" === 1 ) // false
+        console.log( 1 === 1 ) // true
+
+        // one difference between let and var is you can only define something
+        // using let once in the same code block, with var it will allow more than once
+        // using let is 
+        let abc = "123";
+        abc = "something else";
+        //let abc = "abc123"; // <-- this line is an error because abc is alreay defined
+        // var will allow more than once in the same code block, also
+        // this is bad practice to do this
+        var xyz = "123";
+        var xyz = "abc";
+        console.log(xyz);
+
+        // how to make an alert box in javascript
+        // this can be nice for debugging 
+        //alert("Some message to popup");
+
+        // Javascript is a weakly typed language meaning a variable can be of any type and that type can change
+        // Java is a strongly typed lanuguage meaning the datatype must be specificed at compile time and can not change at runtime
+        // Javascript is a high level scripting language that is weakly typed
+
+        // FALSE!  External javascript files can contain HTML
+        
+        // in javascript we can concatinate strings using the +
+        // this is the same as Java
+        let str = "Hello" + " World";
+        console.log(str);
+
+        // in javascript creating a date is very very flexible
+        // Java is very strict
+        let date1 = new Date("Thu Jan 27 2009 17:34:41");
+        let date2 = new Date("01/02/2020");
+        // getMonth returns a number between 0 and 11
+        // why they made January month 0 is ???
+        console.log("Month = " + date1.getMonth());
+        console.log("Month = " + date2.getMonth());
+        console.log(date1.getMonth() === date2.getMonth());
+
+        // in javascript continue works the same as it does in java
+        // also break works the same way as it does in java
+        // this is the same kind of for loop as Java
+        for (let i = 0 ; i < 5 ; i++ ) {
+            if ( i == 3 ) {
+                continue;
+                //break;
+            }
+            console.log(i);
+        }
+
+        // TRUE STATEMENT : Javscript is "safe" in that the browser does not allow
+        // direct access to the memory or CPU.
+
+        // VERY COMMON GOTCHA - this is an every day important thing to know
+        let trick = 8 + "8";
+        console.log(trick) // answer is 88
+
+        // all 5 of these are important to know for KBA
+        // getElementsByTagName - find elements in the document by their HTML tag
+        // for example find all of the p tags
+
+        // getElementById - finds an element by the id="" attribute 
+        // we know that this will retun a single element because id is unique
+
+        // getElementsByClassName - finds all elements with the CSS class name
+
+        // getElementsByName - finds all elements with name="" attribute
+
+        // ***** Know for KBA
+        // querySelector - find the first element in the document based on the CSS querySelector
+
+        // you can not subtract a string from a string
+        // it is not causeing a compile or run error
+        // NaN means ... Not a Number
+        let q = "Hello" - "World";
+        console.log(q);
+
+        // for loops 
+        let person = {
+            firstName : "Eric",
+            lastName : "Heilig",
+            eyeColor : "brown"
+        }
+        // when we use in it loops over the keys
+        // in mean loop over the keys
+        for ( let i in person ) {
+            console.log(i + " = " + person[i]);
+        }
+
+        // of is looping over the values of an array
+        let array = [ 1 ,2 ,3 ,4 ];
+        for ( let i of array ) {
+            console.log(i);
+        }
+
+        // 2 ways of registering an event listener
+        // first is using the onclick="functionToRun()" on a html tag like we did in buttonclick.html
+        // second using the addEventListner method built into the javascript language, this method is available on all HTML elements
+        // to use the addEventListner function first you have to query the element from the document
+        // then you can use the addEventLister('click', functionToRun());
+
+        // ** If you want to spend some time reading about and experimenting with splice() and slice()
+        // I have never in 20 years used either of these things
+        // TRUE - Array.splice() changes the original array whereas Array.slice() does not.
+
+        // 308.4 slide #28 talks about createing new HTML elements
+        // there are 2 ways of creating elements
+        // document.createElement('p');  this will create a new p tag in the document - can make all tags
+        // createTextNode()  // this only works for text nodes like a p tag
+
+        // Javascript tivia about numbers that is on the KBA
+        // number datatype in javascript is either an integer or a float
+    </script>
+    <h1> This is a test </h1>
+</body>
+</html>
