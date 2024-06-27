@@ -143,6 +143,37 @@
 
         // Javascript tivia about numbers that is on the KBA
         // number datatype in javascript is either an integer or a float
+
+        // ----------------- forEach loop -------------
+        // note that I put an extra comma after the 5 to make a 6th element in the array that is acutally empty
+        // the forEach method is called for each element in the array similar to a Java forEach but has differences
+        // the nice part of this forEach is that you get the actual value, the index or pos, and the array itself
+        // for each iteration of the loop.
+        // index    0  1  2  3  4  5
+        let arr = [ 1, 2, 3, 4, 5, ];
+        arr.forEach( function(value, index, array) {
+            console.log("value = " + value);
+            console.log("index = " + index);
+            
+            array[index] = value * value;
+            console.log("multiply = " + arr[index]);
+        });
+
+        // (Empty string) "", 0, false, null, undefined, and NaN are False Values
+        // Javascript autoboxes 0 to false and 1 or greater is true
+        // in the filter function using only a single variable in the function we are just getting the value in a
+        // variable called x
+        // the filer function is returning true or false, if it returns true then it will keep the element
+        // if it returns false it will remove the element
+        // however!!!!!   0 is another way of represeing false
+        // SOOOOO when x % 5 == 0 it is essentially returning false
+        console.log(arr.reverse().filter( function(x) {
+            // when this evluates to 0 it causes javascript to consider it false which then
+            // it does not alter the original array, it creates a new array and removes anything that evaluates to false
+            return x % 5;
+        }));
+
+        //console.log(arr);
     </script>
     <h1> This is a test </h1>
 </body>
