@@ -4,12 +4,14 @@ import com.example.springboot.database.dao.ProductDAO;
 import com.example.springboot.database.entity.Product;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 
+@Slf4j
 @Controller
 public class IndexController {
 
@@ -27,6 +29,14 @@ public class IndexController {
         Product product = productDao.findById(id);
         response.addObject("productKey", product);
 
+        // by default the logging level is set to info so the debug message will not be printed in the terminal
+        log.debug("Debug level");
+        log.info("Info level");
+        log.warn("Warn level");
+        log.error("Error level");
+
+        // NEVER EVER use System.out.println in a spring application
+        System.out.println("This is forbidden at all times");
 
         response.addObject("message", "Hello World!");
 
