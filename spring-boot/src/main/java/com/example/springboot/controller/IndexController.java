@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 
 @Slf4j
 @Controller
@@ -66,4 +68,16 @@ public class IndexController {
 
         return response;
     }
+
+    @GetMapping("/search")
+    public ModelAndView search() {
+        // this page is for another page of the website which is express as "/page-url"
+        ModelAndView response = new ModelAndView("search");
+
+        List<Product> products = productDao.findAll();
+        response.addObject("products", products);
+
+        return response;
+    }
+
 }
