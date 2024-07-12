@@ -46,13 +46,15 @@
                         <th>code</th>
                         <th>name</th>
                         <th>description</th>
+                        <th>edit</th>
                     </tr>
                     <c:forEach items="${products}" var="product">
                         <tr>
-                            <td>${product.id}</td>
+                            <td><a href="/?id=${product.id}">${product.id}</a></td>
                             <td>${product.productCode}</td>
                             <td>${product.productName}</td>
                             <td>${product.productDescription}</td>
+                            <td><a href="/?id=${product.id}">Edit</a></td>
                         </tr>
                     </c:forEach>
                 </table>
