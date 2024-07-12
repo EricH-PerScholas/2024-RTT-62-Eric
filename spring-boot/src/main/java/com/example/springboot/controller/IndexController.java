@@ -70,11 +70,18 @@ public class IndexController {
     }
 
     @GetMapping("/search")
-    public ModelAndView search() {
+    public ModelAndView search(@RequestParam(required = false) String search) {
         // this page is for another page of the website which is express as "/page-url"
         ModelAndView response = new ModelAndView("search");
 
-        List<Product> products = productDao.findAll();
+        log.debug("The user searched for the term: " + search);
+
+        // I am going to add the user input back to the model, so that
+        // we can display the search term in the input field
+        response.addObject("search", search);
+
+         
+        List<Product> products = productDao.findByNameOrCode(search);
         response.addObject("products", products);
 
         return response;
