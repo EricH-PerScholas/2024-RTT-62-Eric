@@ -2,6 +2,7 @@ package com.example.springboot.controller;
 
 import com.example.springboot.database.dao.*;
 import com.example.springboot.database.entity.*;
+import com.example.springboot.form.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,5 +38,20 @@ public class EmployeeController {
         return response;
     }
 
+    @GetMapping("/create")
+    public ModelAndView create() {
+        ModelAndView response = new ModelAndView("employee/create");
 
+        return response;
+    }
+
+    // this is /employee/createSubmit
+    @GetMapping("/createSubmit")
+    public ModelAndView createSubmit(CreateEmployeeFormBean form) {
+        ModelAndView response = new ModelAndView();
+
+        log.debug(form.toString());
+
+        return null;
+    }
 }
