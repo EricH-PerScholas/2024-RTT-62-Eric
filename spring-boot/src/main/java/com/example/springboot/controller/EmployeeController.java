@@ -42,6 +42,9 @@ public class EmployeeController {
     public ModelAndView create() {
         ModelAndView response = new ModelAndView("employee/create");
 
+        List<Employee> reportsToEmployees = employeeDao.findAll();
+        response.addObject("reportsToEmployees", reportsToEmployees);
+
         return response;
     }
 
@@ -60,7 +63,7 @@ public class EmployeeController {
         employee.setEmail(form.getEmail());
         employee.setFirstname(form.getFirstName());
         employee.setLastname(form.getLastName());
-        employee.setReportsTo(1002);
+        employee.setReportsTo(form.getReportsTo());
         employee.setExtension("x123");
         employee.setOfficeId(1);
         employee.setJobTitle("Job Title");

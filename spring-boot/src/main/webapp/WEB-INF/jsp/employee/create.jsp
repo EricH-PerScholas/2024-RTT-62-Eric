@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../include/header.jsp" />
 
 <!-- a page header -->
@@ -37,6 +38,18 @@
                         </div>
                         <div class="col-auto">
                             <input type="text" id="lastNameId" name="lastName" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row align-items-center justify-content-center pb-3">
+                        <div class="col-2">
+                            <label for="reportsTo" class="col-form-label">Reports To</label>
+                        </div>
+                        <div class="col-4">
+                            <select id="reportsTo" name="reportsTo" class="form-control">
+                                <c:forEach items="${reportsToEmployees}" var="employee">
+                                    <option value="${employee.id}">${employee.firstname} ${employee.lastname}</option>
+                                </c:forEach>
+                            </select>
                         </div>
                     </div>
                     <div class="row justify-content-center ">
