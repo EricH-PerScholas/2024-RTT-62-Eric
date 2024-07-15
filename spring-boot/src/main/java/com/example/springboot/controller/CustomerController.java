@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/customer")
 public class CustomerController {
 
+
     // this URL is going to be localhost:8080/customer/list
     @GetMapping("/search")
     public ModelAndView list() {
