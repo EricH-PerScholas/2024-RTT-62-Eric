@@ -42,6 +42,7 @@ public class EmployeeController {
     public ModelAndView create() {
         ModelAndView response = new ModelAndView("employee/create");
 
+        // this list of employees is used in the Reports To dropdown to list all the employees
         List<Employee> reportsToEmployees = employeeDao.findAll();
         response.addObject("reportsToEmployees", reportsToEmployees);
 
