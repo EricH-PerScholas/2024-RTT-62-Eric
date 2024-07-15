@@ -48,6 +48,7 @@ public class EmployeeController {
     // this is /employee/createSubmit
     @GetMapping("/createSubmit")
     public ModelAndView createSubmit(CreateEmployeeFormBean form) {
+        // arguement to the constructor here is the view name - the view name can be a JSP location or a redirect URL
         ModelAndView response = new ModelAndView();
 
         // log out the incoming variables that are in the CreateEmployeeFormBean
@@ -72,6 +73,8 @@ public class EmployeeController {
 
         // redirecting to the employee detail page
         // however often times this would redirect to the edit page (which we have not created)
+        // after the redirect is actually a URL not a view name
+        // in some ways this is overriding the behavior of the setViewName to use a URL rather than a JSP file location
         response.setViewName("redirect:/employee/detail?employeeId=" + employee.getId());
 
         return response;
