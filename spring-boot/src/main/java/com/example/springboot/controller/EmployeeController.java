@@ -50,8 +50,30 @@ public class EmployeeController {
     public ModelAndView createSubmit(CreateEmployeeFormBean form) {
         ModelAndView response = new ModelAndView();
 
+        // log out the incoming variables that are in the CreateEmployeeFormBean
+        // variable name
         log.debug(form.toString());
 
-        return null;
+        // setting the incoming user input onto a new Employee object to be saved to the database
+        Employee employee = new Employee();
+        employee.setEmail(form.getEmail());
+        employee.setFirstname(form.getFirstName());
+        employee.setLastname(form.getLastName());
+        employee.setReportsTo(1002);
+        employee.setExtension("x123");
+        employee.setOfficeId(1);
+        employee.setJobTitle("Job Title");
+
+
+        // when we save to the data base it will auto increment to give us a new id
+        // the new ID is available in the return from the save method.
+        // basically returns the same object .. after its been inserted into the database
+        employee = employeeDao.save(employee);
+
+        // redirecting to the employee detail page
+        // however often times this would redirect to the edit page (which we have not created)
+        response.setViewName("redirect:/employee/detail?employeeId=" + employee.getId());
+
+        return response;
     }
 }
