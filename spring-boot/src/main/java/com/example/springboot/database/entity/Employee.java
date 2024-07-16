@@ -24,10 +24,16 @@ public class Employee {
     // this essentially a customerDAO.findByEmployeeId(123)
     // select c.* from customers c, employees e where c.sales_rep_employee_id = e.id and c.sales_rep_employee_id = <123>;
     @ToString.Exclude
-    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY,  cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Customer> customers;
 
-    @Column(name = "office_id")
+    @ToString.Exclude
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "office_id", nullable = true)
+    private Office office;
+
+    // in essence this field is a read only field and the the database will ignore it on update or insert
+    @Column(name = "office_id", insertable = false, updatable = false)
     private Integer officeId;
 
     @Column(name = "lastname")

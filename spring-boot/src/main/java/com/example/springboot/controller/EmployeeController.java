@@ -24,6 +24,9 @@ public class EmployeeController {
     @Autowired
     private EmployeeDAO employeeDao;
 
+    @Autowired
+    private OfficeDAO officeDao;
+
 
     @GetMapping("/detail")
     public ModelAndView detail(@RequestParam Integer employeeId) {
@@ -40,16 +43,23 @@ public class EmployeeController {
 
     @GetMapping("/create")
     public ModelAndView create() {
+        // this method is setting up the view for rendering
         ModelAndView response = new ModelAndView("employee/create");
 
         // this list of employees is used in the Reports To dropdown to list all the employees
         List<Employee> reportsToEmployees = employeeDao.findAll();
         response.addObject("reportsToEmployees", reportsToEmployees);
 
+        List<Office> offices = officeDao.findAll();
+        response.addObject("offices", offices);
+
+        // add your office query to get all of the offices and add it to the model
+
         return response;
     }
 
     // this is /employee/createSubmit
+    // this method is only called when the form is submitted
     @GetMapping("/createSubmit")
     public ModelAndView createSubmit(CreateEmployeeFormBean form) {
         // arguement to the constructor here is the view name - the view name can be a JSP location or a redirect URL
@@ -66,9 +76,12 @@ public class EmployeeController {
         employee.setLastname(form.getLastName());
         employee.setReportsTo(form.getReportsTo());
         employee.setExtension("x123");
-        employee.setOfficeId(1);
         employee.setJobTitle("Job Title");
 
+        Office office = officeDao.findById(form.getOfficeId());
+        // this wont work because its set to insertable = false and updateable = false
+        //employee.setOfficeId(1);
+        employee.setOffice(office);
 
         // when we save to the data base it will auto increment to give us a new id
         // the new ID is available in the return from the save method.

@@ -53,6 +53,18 @@
                             </select>
                         </div>
                     </div>
+                    <div class="row align-items-center justify-content-center pb-3">
+                        <div class="col-2">
+                            <label for="officeId" class="col-form-label">Office</label>
+                        </div>
+                        <div class="col-4">
+                            <select id="officeId" name="officeId" class="form-control">
+                                <c:forEach items="${offices}" var="office">
+                                    <option value="${office.id}">${office.city}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                    </div>
                     <div class="row justify-content-center ">
                         <div class="col-auto text-center">
                             <button type="submit" class="btn btn-primary">Submit</button>
