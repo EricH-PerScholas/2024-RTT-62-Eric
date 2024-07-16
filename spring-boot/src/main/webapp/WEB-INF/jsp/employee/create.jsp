@@ -48,7 +48,12 @@
                         <div class="col-4">
                             <select id="reportsTo" name="reportsTo" class="form-control">
                                 <c:forEach items="${reportsToEmployees}" var="employee">
-                                    <option value="${employee.id}">${employee.firstname} ${employee.lastname}</option>
+                                    <option
+                                            value="${employee.id}"
+                                            <c:if test="${employee.id == form.reportsTo}">selected</c:if>
+                                    >
+                                            ${employee.firstname} ${employee.lastname}
+                                    </option>
                                 </c:forEach>
                             </select>
                         </div>
@@ -60,7 +65,12 @@
                         <div class="col-4">
                             <select id="officeId" name="officeId" class="form-control">
                                 <c:forEach items="${offices}" var="office">
-                                    <option value="${office.id}">${office.city}</option>
+                                    <option
+                                            value="${office.id}"
+                                            <c:if test="${office.id == form.officeId}">selected</c:if>
+                                    >
+                                            ${office.city}
+                                    </option>
                                 </c:forEach>
                             </select>
                         </div>
