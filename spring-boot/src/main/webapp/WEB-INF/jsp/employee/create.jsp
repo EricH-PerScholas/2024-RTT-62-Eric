@@ -17,7 +17,7 @@
         <div class="row pt-5 ">
             <div class="col-12">
                 <form action="/employee/createSubmit">
-                    
+
                     <!-- email input -->
                     <div class="row align-items-center justify-content-center">
                         <div class="col-2">
@@ -30,7 +30,7 @@
                     <c:if test="${bindingResult.hasFieldErrors('email')}">
                         <div class="row align-items-center justify-content-center">
                             <div class="offset-2 col-4">
-                                <div style="color:red">
+                                <div class="text-danger">
                                     <c:forEach items="${bindingResult.getFieldErrors('email')}" var="error">
                                         ${error.defaultMessage}<br>
                                     </c:forEach>

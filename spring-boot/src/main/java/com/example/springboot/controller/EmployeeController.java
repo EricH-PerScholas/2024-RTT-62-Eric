@@ -73,6 +73,8 @@ public class EmployeeController {
                 log.debug("Validation error : " + ((FieldError) error).getField() + " = " + error.getDefaultMessage());
             }
 
+            // TODO =  Cleanup this code to reduce the duplicated code in the create()
+
             // we are in this part of the if statement so we know for sure that an error has occured
             // we are going to add the binding result to the model, so we can use it on the JSP page to show the user the errors
             response.addObject("bindingResult", bindingResult);
