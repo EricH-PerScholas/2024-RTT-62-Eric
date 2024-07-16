@@ -22,7 +22,7 @@
                             <label for="emailId" class="col-form-label">Email</label>
                         </div>
                         <div class="col-auto">
-                            <input type="text" id="emailId" name="email" class="form-control">
+                            <input type="text" id="emailId" name="email" class="form-control" value="${form.email}">
                         </div>
                     </div>
                     <div class="row align-items-center justify-content-center pb-3">
@@ -30,7 +30,7 @@
                             <label for="firstNameId" class="col-form-label">First Name</label>
                         </div>
                         <div class="col-auto">
-                            <input type="text" id="firstNameId" name="firstName" class="form-control">
+                            <input type="text" id="firstNameId" name="firstName" class="form-control" value="${form.firstName}">
                         </div>
                     </div>
                     <div class="row align-items-center justify-content-center pb-3">
@@ -38,7 +38,7 @@
                             <label for="lastNameId" class="col-form-label">Last Name</label>
                         </div>
                         <div class="col-auto">
-                            <input type="text" id="lastNameId" name="lastName" class="form-control">
+                            <input type="text" id="lastNameId" name="lastName" class="form-control" value="${form.lastName}" >
                         </div>
                     </div>
                     <div class="row align-items-center justify-content-center pb-3">
