@@ -83,6 +83,7 @@ public class EmployeeController {
             if (employee != null) {
                 // we only do this code if we found an employee in the database
                 CreateEmployeeFormBean form = new CreateEmployeeFormBean();
+                form.setEmployeeId(employee.getId());
                 form.setEmail(employee.getEmail());
                 form.setFirstName(employee.getFirstname());
                 form.setLastName(employee.getLastname());
@@ -136,8 +137,13 @@ public class EmployeeController {
             // variable name
             log.debug(form.toString());
 
-            // setting the incoming user input onto a new Employee object to be saved to the database
-            Employee employee = new Employee();
+            // first, I am going to take a shot at looking up the record in the database based on the incoming employeeId
+            // this is from the hidden input field and is not something the user actually entered themselves
+            Employee employee = employeeDao.findById(form.getEmployeeId());
+            if ( employee == null ) {
+                /// this means it was not found in the database so we are going to consider this a create
+                employee = new Employee();
+            }
             employee.setEmail(form.getEmail());
             employee.setFirstname(form.getFirstName());
             employee.setLastname(form.getLastName());

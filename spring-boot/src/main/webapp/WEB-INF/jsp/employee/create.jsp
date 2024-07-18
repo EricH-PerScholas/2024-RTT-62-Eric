@@ -6,7 +6,12 @@
 <section style="background-color:gray">
     <div class="container">
         <div class="row pt-5 pb-5">
-            <h1 class="text-center">Create Employee</h1>
+            <c:if test="${empty form.employeeId}">
+                <h1 class="text-center">Create Employee</h1>
+            </c:if>
+            <c:if test="${not empty form.employeeId}">
+                <h1 class="text-center">Edit Employee</h1>
+            </c:if>
         </div>
     </div>
 </section>
@@ -17,6 +22,7 @@
         <div class="row pt-5 ">
             <div class="col-12">
                 <form action="/employee/createSubmit">
+                    <input type="hidden" name="employeeId" value="${form.employeeId}">
 
                     <!-- email input -->
                     <div class="row align-items-center justify-content-center">
@@ -24,7 +30,7 @@
                             <label for="emailId" class="col-form-label">Email</label>
                         </div>
                         <div class="col-4">
-                            <input type="text" id="emailId" name="email" class="form-control <c:if test="${bindingResult.hasFieldErrors('email')}">is-invalid</c:if>" value="${form.email}" >
+                            <input type="text" id="emailId" name="email" class="form-control <c:if test="${bindingResult.hasFieldErrors('email')}">is-invalid</c:if>" value="${form.email}">
                         </div>
                     </div>
                     <c:if test="${bindingResult.hasFieldErrors('email')}">
@@ -46,7 +52,8 @@
                             <label for="firstNameId" class="col-form-label">First Name</label>
                         </div>
                         <div class="col-4">
-                            <input type="text" id="firstNameId" name="firstName" class="form-control <c:if test="${bindingResult.hasFieldErrors('firstName')}">is-invalid</c:if>" value="${form.firstName}">
+                            <input type="text" id="firstNameId" name="firstName" class="form-control <c:if test="${bindingResult.hasFieldErrors('firstName')}">is-invalid</c:if>"
+                                   value="${form.firstName}">
                         </div>
                     </div>
                     <c:if test="${bindingResult.hasFieldErrors('firstName')}">
@@ -60,7 +67,6 @@
                             </div>
                         </div>
                     </c:if>
-
 
 
                     <div class="row align-items-center justify-content-center pt-3">
@@ -82,7 +88,6 @@
                             </div>
                         </div>
                     </c:if>
-
 
 
                     <div class="row align-items-center justify-content-center pt-3">
