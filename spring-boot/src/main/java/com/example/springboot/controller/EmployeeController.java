@@ -52,10 +52,46 @@ public class EmployeeController {
         List<Employee> reportsToEmployees = employeeDao.findAll();
         response.addObject("reportsToEmployees", reportsToEmployees);
 
+        // add your office query to get all of the offices and add it to the model
         List<Office> offices = officeDao.findAll();
         response.addObject("offices", offices);
 
-        // add your office query to get all of the offices and add it to the model
+
+        return response;
+    }
+
+    @GetMapping("/edit")
+    public ModelAndView edit(@RequestParam(required = false) Integer employeeId) {
+        // by setting required = false on the incoming parameter we allow null to enter the controller so that spring does not cause an error page
+        // then we check if the input is null before trying to do our query
+
+        // this view is the same for all the methods so far, even tho it is named create and we are using it for edit
+        ModelAndView response = new ModelAndView("employee/create");
+
+        // here again we have some duplicated code that could be refactored into a method
+        List<Employee> reportsToEmployees = employeeDao.findAll();
+        response.addObject("reportsToEmployees", reportsToEmployees);
+
+        List<Office> offices = officeDao.findAll();
+        response.addObject("offices", offices);
+
+        // here I am checking the incoming employeeId to see if it is null or not
+        if (employeeId != null) {
+            // load the employee from the database and set the form bean with all the employee values
+            // this is because the form bean is on the JSP page and we need to pre-populate the form with the employee data
+            Employee employee = employeeDao.findById(employeeId);
+            if (employee != null) {
+                // we only do this code if we found an employee in the database
+                CreateEmployeeFormBean form = new CreateEmployeeFormBean();
+                form.setEmail(employee.getEmail());
+                form.setFirstName(employee.getFirstname());
+                form.setLastName(employee.getLastname());
+                form.setReportsTo(employee.getReportsTo());
+                form.setOfficeId(employee.getOffice().getId());
+
+                response.addObject("form", form);
+            }
+        }
 
         return response;
     }
