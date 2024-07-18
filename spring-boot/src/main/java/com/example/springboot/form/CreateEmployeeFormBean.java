@@ -1,6 +1,7 @@
 package com.example.springboot.form;
 
 
+import com.example.springboot.validation.*;
 import jakarta.validation.constraints.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
@@ -22,6 +23,7 @@ public class CreateEmployeeFormBean {
     @Length(max = 100, message = "Email must be less than 100 characters")
     @NotEmpty(message="Email is required.")
     @Email(message = "This must be a valid email")
+    @EmployeeEmailUnique(message = "This email is already in use.")
     private String email;
 
     @Pattern(regexp="[a-zA-Z]+", message = "Firstname must have characters only.")

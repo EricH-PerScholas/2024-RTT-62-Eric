@@ -10,4 +10,7 @@ public interface EmployeeDAO extends JpaRepository<Employee, Long> {
     Employee findById(Integer id);
 
 
+    // select * from employee where lower(email) = lower(:email)
+    Employee findByEmailIgnoreCase(String email);
+
 }
