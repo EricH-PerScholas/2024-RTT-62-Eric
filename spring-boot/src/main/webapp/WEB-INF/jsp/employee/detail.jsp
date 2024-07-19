@@ -43,6 +43,11 @@
         </table>
     </div>
 
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <a href="/employee/edit?employeeId=${employee.id}">Edit</a>
+        </div>
+    </div>
 </section>
 
 

@@ -83,14 +83,20 @@ public class EmployeeController {
             if (employee != null) {
                 // we only do this code if we found an employee in the database
                 CreateEmployeeFormBean form = new CreateEmployeeFormBean();
+
+                // when we are doing an edit we need to pass the employee id to the JSP page so it can put it in the hidden input field
                 form.setEmployeeId(employee.getId());
+
                 form.setEmail(employee.getEmail());
                 form.setFirstName(employee.getFirstname());
                 form.setLastName(employee.getLastname());
                 form.setReportsTo(employee.getReportsTo());
-                form.setOfficeId(employee.getOffice().getId());
+                form.setOfficeId(employee.getOffice().getId()); // interesteing hibernate here
 
                 response.addObject("form", form);
+            } else {
+                // the employee was not found in the database
+                response.addObject("errorMessage", "The employee was not found in the database.");
             }
         }
 
@@ -99,6 +105,7 @@ public class EmployeeController {
 
     // this is /employee/createSubmit
     // this method is only called when the form is submitted
+    // this is being used for both edit and create because we are checking the incoming employeeid if it is null then it is a create
     @GetMapping("/createSubmit")
     public ModelAndView createSubmit(@Valid CreateEmployeeFormBean form, BindingResult bindingResult) {
         // arguement to the constructor here is the view name - the view name can be a JSP location or a redirect URL
@@ -144,6 +151,8 @@ public class EmployeeController {
                 /// this means it was not found in the database so we are going to consider this a create
                 employee = new Employee();
             }
+
+            // here we are setting the values from the inoming form data onto the database entity
             employee.setEmail(form.getEmail());
             employee.setFirstname(form.getFirstName());
             employee.setLastname(form.getLastName());
