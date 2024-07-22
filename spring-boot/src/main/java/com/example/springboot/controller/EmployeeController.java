@@ -111,6 +111,17 @@ public class EmployeeController {
         // arguement to the constructor here is the view name - the view name can be a JSP location or a redirect URL
         ModelAndView response = new ModelAndView();
 
+        // we need to validate that the email does not exist in the database, however we only want to the check if this is a create
+        // when doing a manual check in the controller we want this before the bindingResult.hasErrors() check so that it will fall into that block of code
+        if ( form.getEmployeeId() == null ) {
+            Employee e = employeeDao.findByEmailIgnoreCase(form.getEmail());
+            // if the e is not null then it was found in the database which means the email is already in use
+            if ( e != null ) {
+                // this means the email already exists in the database
+                bindingResult.rejectValue("email", "email", "This email is already in use. Manual Check");
+            }
+        }
+
         // the first thing we want to do is check if the incoming user input has any errors
         if (bindingResult.hasErrors()) {
             for (ObjectError error : bindingResult.getAllErrors()) {
