@@ -43,21 +43,24 @@ public class EmployeeController {
         return response;
     }
 
+
+
     @GetMapping("/create")
     public ModelAndView create() {
         // this method is setting up the view for rendering
         ModelAndView response = new ModelAndView("employee/create");
 
-        // this list of employees is used in the Reports To dropdown to list all the employees
+        loadDropdowns(response);
+
+        return response;
+    }
+
+    private void loadDropdowns(ModelAndView response) {
         List<Employee> reportsToEmployees = employeeDao.findAll();
         response.addObject("reportsToEmployees", reportsToEmployees);
 
-        // add your office query to get all of the offices and add it to the model
         List<Office> offices = officeDao.findAll();
         response.addObject("offices", offices);
-
-
-        return response;
     }
 
     @GetMapping("/edit")
@@ -69,11 +72,7 @@ public class EmployeeController {
         ModelAndView response = new ModelAndView("employee/create");
 
         // here again we have some duplicated code that could be refactored into a method
-        List<Employee> reportsToEmployees = employeeDao.findAll();
-        response.addObject("reportsToEmployees", reportsToEmployees);
-
-        List<Office> offices = officeDao.findAll();
-        response.addObject("offices", offices);
+        loadDropdowns(response);
 
         // here I am checking the incoming employeeId to see if it is null or not
         if (employeeId != null) {
@@ -134,13 +133,7 @@ public class EmployeeController {
             // we are going to add the binding result to the model, so we can use it on the JSP page to show the user the errors
             response.addObject("bindingResult", bindingResult);
 
-            // because the page needs the list of employees for the drop down we need to add the list of employees to the model
-            List<Employee> reportsToEmployees = employeeDao.findAll();
-            response.addObject("reportsToEmployees", reportsToEmployees);
-
-            // we need the list of offices
-            List<Office> offices = officeDao.findAll();
-            response.addObject("offices", offices);
+            loadDropdowns(response);
 
             // im going to set the view name to be
             response.setViewName("employee/create");
