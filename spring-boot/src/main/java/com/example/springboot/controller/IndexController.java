@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -85,6 +86,34 @@ public class IndexController {
         response.addObject("products", products);
 
         return response;
+    }
+
+    @GetMapping("/file-upload")
+    public ModelAndView fileUpload() {
+        // this page is for another page of the website which is express as "/page-url"
+        ModelAndView response = new ModelAndView("file-upload");
+
+        return response;
+    }
+
+    @PostMapping("/file-upload")
+    public ModelAndView fileUploadSubmit(@RequestParam MultipartFile file) {
+        // this page is for another page of the website which is express as "/page-url"
+        ModelAndView modelAndView = new ModelAndView("file-upload");
+
+        log.debug("The file name is: " + file.getOriginalFilename());
+        log.debug("The file size is: " + file.getSize());
+        log.debug("The file content type is: " + file.getContentType());
+
+        // Homework
+        // use the original file name and get a substring of the last index of . to the end of the string
+        // then restrict based on "jpg" or "png"
+        // use the model to put an error message on the page
+
+        // add a check to
+
+
+        return modelAndView;
     }
 
 }
