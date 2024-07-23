@@ -103,7 +103,9 @@ public class EmployeeController {
     // this is /employee/createSubmit
     // this method is only called when the form is submitted
     // this is being used for both edit and create because we are checking the incoming employeeid if it is null then it is a create
-    @PostMapping("/createSubmit")
+    // you can use one or the other of @PostMapping or @RequestMapping
+    //@PostMapping("/createSubmit")
+    @RequestMapping(value = "/createSubmit", method = { RequestMethod.POST, RequestMethod.GET })
     public ModelAndView createSubmit(@Valid CreateEmployeeFormBean form, BindingResult bindingResult) {
         // arguement to the constructor here is the view name - the view name can be a JSP location or a redirect URL
         ModelAndView response = new ModelAndView();
@@ -177,10 +179,12 @@ public class EmployeeController {
             // however often times this would redirect to the edit page (which we have not created)
             // after the redirect is actually a URL not a view name
             // in some ways this is overriding the behavior of the setViewName to use a URL rather than a JSP file location
-            //response.setViewName("redirect:/employee/detail?employeeId=" + employee.getId());
+            response.setViewName("redirect:/employee/detail?employeeId=" + employee.getId());
 
-            loadDropdowns(response);
-            response.setViewName("employee/create");
+            // we added these 2 lines of code so that we could demonstrate using the network tab in the browser.
+            // it prevents the redirect from happening so we can see the response in the network tab
+            //loadDropdowns(response);
+            //response.setViewName("employee/create");
 
             return response;
         }
