@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.*;
+import java.nio.file.*;
 import java.util.List;
 
 
@@ -110,7 +112,17 @@ public class IndexController {
         // then restrict based on "jpg" or "png"
         // use the model to put an error message on the page
 
-        // add a check to
+        String saveFilename = "./src/main/webapp/pub/images/" + file.getOriginalFilename();
+
+        // this Files.copy is a utility that will read the stream one chunk at a time and write it to a file.
+        // first arg is the input stream to read from the uploaded file
+        // 2nd is the filename where we want to write the file
+        // 3rd says to overwrite if existing.
+        try {
+            Files.copy(file.getInputStream(), Paths.get(saveFilename), StandardCopyOption.REPLACE_EXISTING);
+        } catch ( Exception e ) {
+            log.error("Unable to finish reading file", e);
+        }
 
 
         return modelAndView;
