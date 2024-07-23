@@ -3,6 +3,7 @@
     <h1 class="page-title text-center pt-5 pb-5">File Upload</h1>
 
     <form method="post" action="/file-upload" enctype="multipart/form-data">
+        <input type="hidden" name="employeeId" value="${employeeId}"/>
 
         <div class="row align-items-center justify-content-center">
             <div class="col-2">

@@ -1,7 +1,7 @@
 package com.example.springboot.controller;
 
-import com.example.springboot.database.dao.ProductDAO;
-import com.example.springboot.database.entity.Product;
+import com.example.springboot.database.dao.*;
+import com.example.springboot.database.entity.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +22,8 @@ public class IndexController {
 
     @Autowired
     private ProductDAO productDao;
+    @Autowired
+    private EmployeeDAO employeeDAO;
 
 
     // this function is for the home page of the website which is express as just a plain slash "/"
@@ -91,17 +93,18 @@ public class IndexController {
     }
 
     @GetMapping("/file-upload")
-    public ModelAndView fileUpload() {
+    public ModelAndView fileUpload(@RequestParam Integer employeeId) {
         // this page is for another page of the website which is express as "/page-url"
         ModelAndView response = new ModelAndView("file-upload");
+        response.addObject("employeeId", employeeId);
 
         return response;
     }
 
     @PostMapping("/file-upload")
-    public ModelAndView fileUploadSubmit(@RequestParam MultipartFile file) {
+    public ModelAndView fileUploadSubmit(@RequestParam MultipartFile file, @RequestParam Integer employeeId) {
         // this page is for another page of the website which is express as "/page-url"
-        ModelAndView modelAndView = new ModelAndView("file-upload");
+        ModelAndView modelAndView = new ModelAndView("redirect:/employee/detail?employeeId=" + employeeId);
 
         log.debug("The file name is: " + file.getOriginalFilename());
         log.debug("The file size is: " + file.getSize());
@@ -112,6 +115,8 @@ public class IndexController {
         // then restrict based on "jpg" or "png"
         // use the model to put an error message on the page
 
+
+        // this is the location on the hard drive
         String saveFilename = "./src/main/webapp/pub/images/" + file.getOriginalFilename();
 
         // this Files.copy is a utility that will read the stream one chunk at a time and write it to a file.
@@ -124,6 +129,14 @@ public class IndexController {
             log.error("Unable to finish reading file", e);
         }
 
+        // we can load the record from the database based on the incoming employeeId
+        Employee employee = employeeDAO.findById(employeeId);
+
+        // this is the URL to get the image
+        String url = "/pub/images/" + file.getOriginalFilename();
+        employee.setProfileImageUrl(url);
+
+        employeeDAO.save(employee);
 
         return modelAndView;
     }
