@@ -8,9 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.*;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -105,7 +103,7 @@ public class EmployeeController {
     // this is /employee/createSubmit
     // this method is only called when the form is submitted
     // this is being used for both edit and create because we are checking the incoming employeeid if it is null then it is a create
-    @GetMapping("/createSubmit")
+    @PostMapping("/createSubmit")
     public ModelAndView createSubmit(@Valid CreateEmployeeFormBean form, BindingResult bindingResult) {
         // arguement to the constructor here is the view name - the view name can be a JSP location or a redirect URL
         ModelAndView response = new ModelAndView();
@@ -148,6 +146,7 @@ public class EmployeeController {
             // variable name
             log.debug(form.toString());
 
+
             // first, I am going to take a shot at looking up the record in the database based on the incoming employeeId
             // this is from the hidden input field and is not something the user actually entered themselves
             Employee employee = employeeDao.findById(form.getEmployeeId());
@@ -178,7 +177,10 @@ public class EmployeeController {
             // however often times this would redirect to the edit page (which we have not created)
             // after the redirect is actually a URL not a view name
             // in some ways this is overriding the behavior of the setViewName to use a URL rather than a JSP file location
-            response.setViewName("redirect:/employee/detail?employeeId=" + employee.getId());
+            //response.setViewName("redirect:/employee/detail?employeeId=" + employee.getId());
+
+            loadDropdowns(response);
+            response.setViewName("employee/create");
 
             return response;
         }
