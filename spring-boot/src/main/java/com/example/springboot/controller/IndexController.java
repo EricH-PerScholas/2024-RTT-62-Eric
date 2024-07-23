@@ -22,6 +22,7 @@ public class IndexController {
 
     @Autowired
     private ProductDAO productDao;
+
     @Autowired
     private EmployeeDAO employeeDAO;
 
