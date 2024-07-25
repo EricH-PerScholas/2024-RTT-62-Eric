@@ -3,9 +3,10 @@ package com.example.springboot.controller;
 import com.example.springboot.database.dao.*;
 import com.example.springboot.database.entity.*;
 import com.example.springboot.form.*;
+import jakarta.annotation.*;
 import jakarta.validation.*;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.*;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,23 @@ import java.util.List;
 @RequestMapping("/employee")
 public class EmployeeController {
 
+    public EmployeeController() {
+        // some kind of initialization code in here
+
+        // in phase 1 of component scan the constructor is called to create the new object
+        // however the autowired fields are not set yet
+        // in phase 2 the autowired fields are set
+        // in phase 3 the @PostConstruct method is called
+
+        // constructors are not longer used very much in spring
+    }
+
+    @PostConstruct
+    public void init() {
+        // this is executed in phase 3 after all of the autowired fields are set
+        // this takes the place of a constructor for initialization code
+    }
+
     @Autowired
     private CustomerDAO customerDao;
 
@@ -26,6 +44,7 @@ public class EmployeeController {
 
     @Autowired
     private OfficeDAO officeDao;
+
 
 
     @GetMapping("/detail")
