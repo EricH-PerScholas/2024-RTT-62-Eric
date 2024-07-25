@@ -3,6 +3,7 @@ package com.example.springboot.controller;
 import com.example.springboot.database.dao.*;
 import com.example.springboot.database.entity.*;
 import com.example.springboot.form.*;
+import com.example.springboot.service.*;
 import jakarta.annotation.*;
 import jakarta.validation.*;
 import lombok.extern.slf4j.Slf4j;
@@ -45,6 +46,9 @@ public class EmployeeController {
     @Autowired
     private OfficeDAO officeDao;
 
+    @Autowired
+    private EmployeeService employeeService;
+
 
 
     @GetMapping("/detail")
@@ -80,7 +84,9 @@ public class EmployeeController {
         response.addObject("offices", offices);
     }
 
-    @GetMapping("/edit")
+    // these 2 annotations are essentially the same thing
+    // @GetMapping("/edit")  <-- this is just a shortcut for the below line
+    @RequestMapping(value = "/edit", method = RequestMethod.GET )
     public ModelAndView edit(@RequestParam(required = false) Integer employeeId) {
         // by setting required = false on the incoming parameter we allow null to enter the controller so that spring does not cause an error page
         // then we check if the input is null before trying to do our query
@@ -162,37 +168,8 @@ public class EmployeeController {
 
             return response;
         } else {
-
-            // log out the incoming variables that are in the CreateEmployeeFormBean
-            // variable name
-            log.debug(form.toString());
-
-
-            // first, I am going to take a shot at looking up the record in the database based on the incoming employeeId
-            // this is from the hidden input field and is not something the user actually entered themselves
-            Employee employee = employeeDao.findById(form.getEmployeeId());
-            if ( employee == null ) {
-                /// this means it was not found in the database so we are going to consider this a create
-                employee = new Employee();
-            }
-
-            // here we are setting the values from the inoming form data onto the database entity
-            employee.setEmail(form.getEmail());
-            employee.setFirstname(form.getFirstName());
-            employee.setLastname(form.getLastName());
-            employee.setReportsTo(form.getReportsTo());
-            employee.setExtension("x123");
-            employee.setJobTitle("Job Title");
-
-            Office office = officeDao.findById(form.getOfficeId());
-            // this wont work because its set to insertable = false and updateable = false
-            //employee.setOfficeId(1);
-            employee.setOffice(office);
-
-            // when we save to the data base it will auto increment to give us a new id
-            // the new ID is available in the return from the save method.
-            // basically returns the same object .. after its been inserted into the database
-            employee = employeeDao.save(employee);
+            // call the employee service to create the employee
+            Employee employee = employeeService.createEmployee(form);
 
             // redirecting to the employee detail page
             // however often times this would redirect to the edit page (which we have not created)
