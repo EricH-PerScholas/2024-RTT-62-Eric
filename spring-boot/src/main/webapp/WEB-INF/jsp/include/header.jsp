@@ -35,6 +35,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/file-upload">File Upload</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/account/create-account">Create Account</a>
+                    </li>
                 </ul>
             </div>
         </div>

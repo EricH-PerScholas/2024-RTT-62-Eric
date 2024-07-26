@@ -3,6 +3,7 @@ package com.example.springboot.controller;
 import com.example.springboot.database.dao.*;
 import com.example.springboot.database.entity.*;
 import com.example.springboot.form.*;
+import com.example.springboot.service.*;
 import jakarta.validation.*;
 import lombok.extern.slf4j.*;
 import org.springframework.beans.factory.annotation.*;
@@ -15,10 +16,14 @@ import java.util.*;
 
 @Slf4j
 @Controller
+@RequestMapping("/account")
 public class LoginController {
 
     @Autowired
     private UserDAO userDao;
+
+    @Autowired
+    private UserService userService;
 
 
     @GetMapping("/create-account")
@@ -32,6 +37,9 @@ public class LoginController {
     public ModelAndView createAccountSubmit(@Valid CreateAccountFormBean form, BindingResult bindingResult) {
         ModelAndView response = new ModelAndView("auth/create-account");
 
+        // homework if you want - check to make sure the email does not already exist
+        // this is a great case the custom annotation that we made
+
         if (bindingResult.hasErrors()) {
             for (ObjectError error : bindingResult.getAllErrors()) {
                 log.debug("Validation error : " + ((FieldError) error).getField() + " = " + error.getDefaultMessage());
@@ -41,14 +49,7 @@ public class LoginController {
             response.addObject("form", form);
         } else {
             // there were no errors so we can create the new user in the database
-            User user = new User();
-
-            user.setEmail(form.getEmail());
-            user.setPassword(form.getPassword());
-            user.setCreateDate(new Date());
-
-            // save the user to the database
-            userDao.save(user);
+            userService.createUser(form);
         }
 
         return response;

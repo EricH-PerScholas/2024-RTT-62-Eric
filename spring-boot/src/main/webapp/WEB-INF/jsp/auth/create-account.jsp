@@ -16,7 +16,7 @@
     <div class="container">
         <div class="row pt-5 ">
             <div class="col-12">
-                <form action="/create-account" method="post">
+                <form action="/account/create-account" method="post">
 
                     <!-- email input -->
                     <div class="row align-items-center justify-content-center">
