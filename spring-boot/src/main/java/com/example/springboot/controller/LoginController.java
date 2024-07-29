@@ -25,6 +25,14 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    @GetMapping("/loginPageUrl")
+    public ModelAndView loginPage() {
+        // this was the homework from friday to crate your own login page
+        ModelAndView response = new ModelAndView("auth/login");
+
+        return response;
+    }
+
 
     @GetMapping("/create-account")
     public ModelAndView createAccount() {
