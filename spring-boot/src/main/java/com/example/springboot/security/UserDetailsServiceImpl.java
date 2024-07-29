@@ -61,6 +61,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return userDetails;
     }
 
+    // this is the process of looping through the user roles and creating the GrantedAuthorities
+    // the GrantedAuthorities are what Spring Security uses to determine if a use
     private Collection<? extends GrantedAuthority> buildGrantAuthorities(List<UserRole> userRoles) {
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 

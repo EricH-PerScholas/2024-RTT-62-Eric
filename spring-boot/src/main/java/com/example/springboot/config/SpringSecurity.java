@@ -14,6 +14,9 @@ public class SpringSecurity {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
+        // boiler plate code to protect a common hack
+        http.csrf(csrf -> csrf.disable());
+
         // this section says allow all pages EXCEPT the ones that are in the AntPathRequestMatcher
         // anything in AntPathRequestMatcher will require the user to be authenticated
         http.authorizeRequests()
@@ -36,6 +39,7 @@ public class SpringSecurity {
                 // 2) input field for username needs to be named "username"
                 // 3) input field for password needs to be named "password"
                 .loginProcessingUrl("/account/loginProcessingURL"));
+
 
         return http.build();
     }
