@@ -38,6 +38,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/account/create-account">Create Account</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/account/loginPageUrl">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/account/logout">Logout</a>
+                    </li>
                 </ul>
             </div>
         </div>
