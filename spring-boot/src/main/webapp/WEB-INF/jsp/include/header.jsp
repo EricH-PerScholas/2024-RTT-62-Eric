@@ -52,6 +52,11 @@
                         <li class="nav-item">
                             <span class="nav-link"><sec:authentication property="name"/></span>
                         </li>
+                        <sec:authorize access="hasAnyAuthority('ADMIN')">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/dashboard">Admin Dashboard</a>
+                            </li>
+                        </sec:authorize>
                     </sec:authorize>
 
                 </ul>
