@@ -49,7 +49,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/account/logout">Logout</a>
                         </li>
+                        <li class="nav-item">
+                            <span class="nav-link"><sec:authentication property="name"/></span>
+                        </li>
                     </sec:authorize>
+
                 </ul>
             </div>
         </div>
