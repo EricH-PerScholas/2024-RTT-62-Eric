@@ -26,7 +26,7 @@ public class LoginController {
     private UserService userService;
 
     @GetMapping("/loginPageUrl")
-    public ModelAndView loginPage() {
+    public ModelAndView loginPage(@RequestParam(required = false) String error) {
         // this was the homework from friday to crate your own login page
         ModelAndView response = new ModelAndView("auth/login");
 
