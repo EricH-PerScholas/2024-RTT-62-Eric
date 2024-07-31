@@ -1,18 +1,22 @@
 package com.example.springboot.controller;
 
-import com.example.springboot.database.dao.*;
-import com.example.springboot.database.entity.*;
-import com.example.springboot.form.*;
-import com.example.springboot.service.*;
-import jakarta.validation.*;
-import lombok.extern.slf4j.*;
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.stereotype.*;
-import org.springframework.validation.*;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.*;
-
-import java.util.*;
+import com.example.springboot.database.dao.UserDAO;
+import com.example.springboot.form.CreateAccountFormBean;
+import com.example.springboot.security.AuthenticatedUserUtilities;
+import com.example.springboot.service.UserService;
+import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Slf4j
 @Controller
@@ -24,6 +28,9 @@ public class LoginController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private AuthenticatedUserUtilities authenticatedUserUtilities;
 
     @GetMapping("/loginPageUrl")
     public ModelAndView loginPage(@RequestParam(required = false) String error) {
@@ -42,7 +49,7 @@ public class LoginController {
     }
 
     @PostMapping("/create-account")
-    public ModelAndView createAccountSubmit(@Valid CreateAccountFormBean form, BindingResult bindingResult) {
+    public ModelAndView createAccountSubmit(@Valid CreateAccountFormBean form, BindingResult bindingResult, HttpSession session) {
         ModelAndView response = new ModelAndView("auth/create-account");
 
         // homework if you want - check to make sure the email does not already exist
@@ -58,6 +65,7 @@ public class LoginController {
         } else {
             // there were no errors so we can create the new user in the database
             userService.createUser(form);
+            authenticatedUserUtilities.manualAuthentication(session, form.getEmail(), form.getPassword());
         }
 
         return response;
