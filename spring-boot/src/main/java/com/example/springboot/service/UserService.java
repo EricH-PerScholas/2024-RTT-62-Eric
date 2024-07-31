@@ -18,6 +18,9 @@ public class UserService {
     private UserDAO userDao;
 
     @Autowired
+    private UserRoleDAO userRoleDao;
+
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
 
@@ -36,6 +39,13 @@ public class UserService {
 
         // save the user to the database
         userDao.save(user);
+        
+        // create a user role for the user
+        UserRole userRole = new UserRole();
+        userRole.setRoleName("USER");
+        userRole.setUserId(user.getId());
+
+        userRoleDao.save(userRole);
 
         return user;
     }
