@@ -1,18 +1,22 @@
 package com.example.springboot.controller;
 
-import com.example.springboot.database.dao.*;
-import com.example.springboot.database.entity.*;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import com.example.springboot.database.dao.EmployeeDAO;
+import com.example.springboot.database.dao.ProductDAO;
+import com.example.springboot.database.entity.Employee;
+import com.example.springboot.database.entity.Product;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.*;
-import java.nio.file.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 
@@ -29,10 +33,13 @@ public class IndexController {
 
     // this function is for the home page of the website which is express as just a plain slash "/"
     @GetMapping("/")
-    public ModelAndView index(@RequestParam(required = false) Integer id) {
+    public ModelAndView index(@RequestParam(required = false) Integer id) throws Exception {
         // by default, the @RequestParam is required, meaning if it is missing in the URL spring will send you to the error page
         // if the id parameter is not present on the URL then the incoming id will be null
         ModelAndView response = new ModelAndView("index");
+
+        // IF you want to experiment with the error controller you can uncomment this line
+        //throw new Exception("This is a test exception");
 
         Product product = productDao.findById(id);
         response.addObject("productKey", product);
