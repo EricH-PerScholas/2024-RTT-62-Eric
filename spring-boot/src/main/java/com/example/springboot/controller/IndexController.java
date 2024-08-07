@@ -95,6 +95,22 @@ public class IndexController {
 
          
         List<Product> products = productDao.findByNameOrCode(search);
+
+        log.debug("=================================== stream ===============================");
+
+
+        // this is a stream with a lambda function
+        products.stream().forEach(product -> {
+            log.debug("Product: " + product.getProductName());
+        });
+
+        log.debug("=================================== for loop ===============================");
+
+        // essentially the same as the above stream
+        for (Product product : products) {
+            log.debug("Product: " + product.getProductName());
+        }
+
         response.addObject("products", products);
 
         return response;

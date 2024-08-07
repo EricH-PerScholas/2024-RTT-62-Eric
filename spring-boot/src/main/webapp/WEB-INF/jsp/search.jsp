@@ -35,7 +35,7 @@
     <div class="container">
         <div class="row pt-5">
             <div class="col-12">
-                <h2 class="text-center">Customers Found (${customers.size()})</h2>
+                <h2 class="text-center">Customers Found (${products.size()})</h2>
             </div>
         </div>
         <div class="row pt-3">
@@ -48,7 +48,7 @@
                         <th>description</th>
                         <th>edit</th>
                     </tr>
-                    <asdf:forEach items="${products}" var="product">
+                    <c:forEach items="${products}" var="product">
                         <tr>
                             <td><a href="/?id=${product.id}">${product.id}</a></td>
                             <td>${product.productCode}</td>
@@ -56,7 +56,7 @@
                             <td>${product.productDescription}</td>
                             <td><a href="/?id=${product.id}">Edit</a></td>
                         </tr>
-                    </asdf:forEach>
+                    </c:forEach>
                 </table>
             </div>
         </div>
