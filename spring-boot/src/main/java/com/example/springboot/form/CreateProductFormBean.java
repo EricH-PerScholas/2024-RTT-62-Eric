@@ -27,4 +27,10 @@ public class CreateProductFormBean {
     @NotEmpty(message = "Image URL is required")
     private String imageUrl;
 
+    // this is how to capture the boolean value of the checkbox either on or off
+    private boolean ripe;
+
+    
+    private String radio;
+
 }

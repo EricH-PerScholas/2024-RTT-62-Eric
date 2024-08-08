@@ -88,9 +88,34 @@
             </div>
         </c:if>
 
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="ripe" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Is the mango ripe?
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+                Default radio
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="radio" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+                Default checked radio
+            </label>
+        </div>
+
         <div class="row pt-3">
             <div class="col-6">
                 <button type="submit" class="btn btn-primary">Save Product</button>
+
+                <a class="btn btn-primary ms-3" href="/" role="button">Cancel</a>
+
+                <a href="/"><input type="button" value="Button Text"></a>
             </div>
         </div>
 
