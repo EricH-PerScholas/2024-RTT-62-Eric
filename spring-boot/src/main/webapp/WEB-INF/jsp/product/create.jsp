@@ -6,6 +6,7 @@
 
 <div class="container">
     <form action="/product/createSubmit">
+        <input type="hidden" name="id" value="${form.id}">
 
         <div class="row pt-5">
             <div class="col-6">

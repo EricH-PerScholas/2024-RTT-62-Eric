@@ -11,6 +11,10 @@ import lombok.ToString;
 @ToString
 public class CreateProductFormBean {
 
+    // this will be populated when we are editing a product
+    // it will be null if this is a create product
+    private Integer id;
+
     @NotEmpty(message = "Name is required")
     private String name;
 
