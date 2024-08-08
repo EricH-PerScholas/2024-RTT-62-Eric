@@ -85,6 +85,9 @@ public class ProductController {
         form.setId(product.getId());
         response.addObject("form", form);
 
+        // if you want to redirect to another page
+        //response.setView("redirect:/someohterurl?id=" + product.getId());
+
         return response;
     }
 
