@@ -13,4 +13,7 @@ public class CreateAccountFormBean {
     @NotEmpty
     private String password;
 
+
+    private Boolean checkbox;
+
 }

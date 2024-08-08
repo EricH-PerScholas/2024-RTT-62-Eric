@@ -44,4 +44,7 @@ public class Product {
     @Column(name = "msrp", columnDefinition = "DECIMAL")
     private Double msrp;
 
+    @Column(name = "image_url")
+    private String imageUrl;
+
 }
