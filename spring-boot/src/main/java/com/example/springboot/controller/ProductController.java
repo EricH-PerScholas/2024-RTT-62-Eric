@@ -47,6 +47,7 @@ public class ProductController {
     @GetMapping("/createSubmit")
     public ModelAndView createProductSubmit(@Valid CreateProductFormBean form, BindingResult bindingResult) {
         ModelAndView response = new ModelAndView("product/create");
+        response.addObject("form", form);
 
         log.info(form.toString());
 
@@ -83,7 +84,7 @@ public class ProductController {
         productDao.save(product);
 
         form.setId(product.getId());
-        response.addObject("form", form);
+
 
         // if you want to redirect to another page
         //response.setView("redirect:/someohterurl?id=" + product.getId());
