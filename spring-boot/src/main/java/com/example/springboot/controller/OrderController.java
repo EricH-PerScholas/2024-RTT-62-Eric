@@ -36,11 +36,22 @@ public class OrderController {
     private AuthenticatedUserUtilities authenticatedUserUtilities;
 
     @GetMapping("/order/orderdetail")
-    public ModelAndView orderDetail(@RequestParam Integer orderId) {
+    public ModelAndView orderDetail() {
         ModelAndView response = new ModelAndView("order/orderdetail");
 
-        List<Map<String,Object>> orderDetails = orderDao.getOrderDetails(orderId);
+        // get the logged in user
+        User user = authenticatedUserUtilities.getCurrentUser();
+
+        // now we need to get the order from the database where the status is 'CART'
+        Order order = orderDao.findOrderInCartStatus(user.getId());
+
+        // get the order details for the order
+        List<Map<String,Object>> orderDetails = orderDao.getOrderDetails(order.getId());
         response.addObject("orderDetails", orderDetails);
+
+        // lets get the total order amount
+        Double orderTotal = orderDao.getOrderTotal(order.getId());
+        response.addObject("orderTotal", orderTotal);
 
         return response;
     }
@@ -87,6 +98,7 @@ public class OrderController {
             orderDetailsDao.save(orderDetail);
         }
 
+        response.setViewName("redirect:/order/orderdetail");
         return response;
     }
 
