@@ -35,7 +35,7 @@
     <div class="container">
         <div class="row pt-5">
             <div class="col-12">
-                <h2 class="text-center">Customers Found (${products.size()})</h2>
+                <h2 class="text-center">Products Found (${products.size()})</h2>
             </div>
         </div>
         <div class="row pt-3">
@@ -47,6 +47,7 @@
                         <th>name</th>
                         <th>description</th>
                         <th>edit</th>
+                        <th>Add to cart</th>
                     </tr>
                     <c:forEach items="${products}" var="product">
                         <tr>
@@ -55,6 +56,7 @@
                             <td>${product.productName}</td>
                             <td>${product.productDescription}</td>
                             <td><a href="/?id=${product.id}">Edit</a></td>
+                            <td><a href="/order/addToCart?id=${product.id}">Add To Cart</a></td>
                         </tr>
                     </c:forEach>
                 </table>

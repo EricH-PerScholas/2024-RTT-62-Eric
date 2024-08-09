@@ -30,7 +30,7 @@ public class CreateProductFormBean {
     // this is how to capture the boolean value of the checkbox either on or off
     private boolean ripe;
 
-    
+
     private String radio;
 
 }

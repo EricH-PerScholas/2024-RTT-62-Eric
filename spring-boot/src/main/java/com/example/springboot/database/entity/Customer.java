@@ -3,11 +3,7 @@ package com.example.springboot.database.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.awt.print.Book;
-import java.math.BigDecimal;
-import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 @Setter
 @Getter
@@ -62,10 +58,6 @@ public class Customer {
     @JoinColumn(name = "sales_rep_employee_id", nullable = true)
     private Employee employee;
 
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
-    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Order> orders;
 
     // you can only use a primitive type if the column is not nullable
     // if the column is nullable then you have to use the Integer wrapper class because a primitive

@@ -2,11 +2,9 @@ package com.example.springboot.database.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.query.Page;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -25,15 +23,17 @@ public class Order {
 
     @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id", nullable = false)
-    private Customer customer;
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     @ToString.Exclude
     @OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<OrderDetail> orderDetails;
 
+    @Column(name = "user_id", insertable = false, updatable = false)
+    private int userId;
 
-    @Column(name = "customer_id", insertable = false, updatable = false)
+    @Column(name = "customer_id")
     private int customerId;
 
     @Column(name = "order_date")
