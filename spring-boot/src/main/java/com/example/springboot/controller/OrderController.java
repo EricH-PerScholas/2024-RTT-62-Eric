@@ -45,13 +45,15 @@ public class OrderController {
         // now we need to get the order from the database where the status is 'CART'
         Order order = orderDao.findOrderInCartStatus(user.getId());
 
-        // get the order details for the order
-        List<Map<String,Object>> orderDetails = orderDao.getOrderDetails(order.getId());
-        response.addObject("orderDetails", orderDetails);
+        if ( order != null ) {
+            // get the order details for the order
+            List<Map<String, Object>> orderDetails = orderDao.getOrderDetails(order.getId());
+            response.addObject("orderDetails", orderDetails);
 
-        // lets get the total order amount
-        Double orderTotal = orderDao.getOrderTotal(order.getId());
-        response.addObject("orderTotal", orderTotal);
+            // lets get the total order amount
+            Double orderTotal = orderDao.getOrderTotal(order.getId());
+            response.addObject("orderTotal", orderTotal);
+        }
 
         return response;
     }
@@ -96,6 +98,27 @@ public class OrderController {
             // the product is already in the cart so we need to increment the quantity
             orderDetail.setQuantityOrdered(orderDetail.getQuantityOrdered() + 1);
             orderDetailsDao.save(orderDetail);
+        }
+
+        response.setViewName("redirect:/order/orderdetail");
+        return response;
+    }
+
+    @GetMapping("/order/checkout")
+    public ModelAndView checkout() {
+        ModelAndView response = new ModelAndView();
+
+        // get the logged in user
+        User user = authenticatedUserUtilities.getCurrentUser();
+
+        // now we need to get the order from the database where the status is 'CART'
+        Order order = orderDao.findOrderInCartStatus(user.getId());
+        if ( order == null ) {
+            log.error("There is no order with items in the cart to checktout");
+        } else {
+            // there was an order with items in the cart so we change the status to COMPLETE
+            order.setStatus("COMPLETE");
+            orderDao.save(order);
         }
 
         response.setViewName("redirect:/order/orderdetail");

@@ -40,6 +40,11 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <a href="/order/checkout" class="btn btn-primary">Checkout</a>
+        </div>
+    </div>
 </section>
 
 
